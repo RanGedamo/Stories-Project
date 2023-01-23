@@ -1,13 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-  
-      </header>
+  <div className="App">
+    app
     </div>
-  );
-}
-
-export default App;
+    )
+};
