@@ -1,12 +1,14 @@
-import React from 'react'
+import React from "react";
 
-export default function Avatar({image}){
+export default function Avatar({ image }) {
   return (
-    <section className='avatar-detail'>
-      <div className='avatar-box'>
-        <img class="avatar-profile-image" src={image.img} alt="" />
-      </div>
-      <p className='avatar-name'>{image.name}</p>
-    </section>
-  )
-};
+    <div className="d-flex align-items-center">
+      <img
+        src={image}
+        alt="community member"
+        style={{ width: "45px", height: "45px" }}
+        className="rounded-circle"
+      />
+    </div>
+  );
+}
