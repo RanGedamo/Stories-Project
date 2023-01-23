@@ -1,11 +1,11 @@
 import React from "react";
-import { useState ,useRef } from "react";
+import { useState ,useRef, useEffect } from "react";
+import Header from "../Header/Header";
 
 
-import video1 from "../video/Video1.mp4"
-import video2 from "../video/Video1.mp4"
-import video3 from "../video/Video1.mp4"
-import video4 from "../video/Video1.mp4"
+import video1 from "../video/video1.mp4"
+import video2 from "../video/video1.mp4"
+
 
 import "./video.css"
 export default function Video(){ 
@@ -23,10 +23,21 @@ export default function Video(){
         }
     }
 
+    useEffect(() => {
+        const scroll = document.getElementById("video-container");
+    
+        if (scroll) {
+          scroll.addEventListener("scroll", () => {
+            vidRef.current.pause();
+          });
+        }
+      }, []);
+
    
     return(
         <div className="video-cards">
-            <video onClick={onVideoClick} className="video-player" ref={vidRef} src={video1} loop autoPlay={true}/>
+            <Header/>
+            <video onClick={onVideoClick} className="video-player" ref={vidRef} src={video2} loop autoPlay={true}/>
         </div>
     )
 }
