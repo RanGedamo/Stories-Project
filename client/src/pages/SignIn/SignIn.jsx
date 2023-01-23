@@ -11,6 +11,7 @@ import {
 }
 from 'mdb-react-ui-kit';
 import { useState } from 'react';
+import { loginUser } from '../../services/users-service';
 
 function SignIn() {
 const [inputs,setInputs] = useState()
