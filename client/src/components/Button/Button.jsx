@@ -1,7 +1,12 @@
-import React from 'react'
+import React from 'react';
+import { MDBBtn } from 'mdb-react-ui-kit';
 
-export default function Button({text}) {
+export default function Button({color, text}) {
   return (
-    <button type="button" class="btn btn-danger btn-rounded">{text}</button>
-  )
-};
+    <>
+      <MDBBtn rounded className='mx-2' color={color}>
+        {text}
+      </MDBBtn>
+    </>
+  );
+}
