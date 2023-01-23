@@ -10,26 +10,33 @@ import {
   MDBIcon
 }
 from 'mdb-react-ui-kit';
+import { useState } from 'react';
+import e from 'cors';
 
 function SignIn() {
+const [inputs,setInputs] = useState()
+  const changeInputs = (e)=>{
+    setInputs({...inputs,[e.target.name]:e.target.value});
+    console.log(inputs);
+  }
   return (
-    <MDBContainer fluid style={{backgroundImage:"url('/images/public-images/SignInBackground.jpg')",backgroundRepeat:"no-repeat",backgroundSize:"100%"}}>
+    <MDBContainer fluid style={{backgroundImage:"url('/images/public-images/sign.jpg')",backgroundSize:"100vh",backgroundSize:"100vw",width:"100"}}>
 
       <MDBRow className='d-flex justify-content-center align-items-center h-100'>
         <MDBCol col='12'>
 
-          <MDBCard className='bg-dark text-white my-5 mx-auto' style={{borderRadius: '1rem', maxWidth: '400px'}}>
+          <MDBCard className='bg-dark  text-white my-5 mx-auto' style={{borderRadius: '1rem', maxWidth: '400px'}}>
             <MDBCardBody className='p-5 d-flex flex-column align-items-center mx-auto w-100'>
 
               <h2 className="fw-bold mb-2 text-uppercase">Welcome to Community Stories</h2>
 
               <p className="text-white-50 mb-5">Please enter your login and password!</p>
 
-              <MDBInput wrapperClass='mb-4 mx-5 w-100' labelClass='text-white' label='Email address' id='formControlLg' type='email' size="lg"/>
-              <MDBInput wrapperClass='mb-4 mx-5 w-100' labelClass='text-white' label='Password' id='formControlLg' type='password' size="lg"/>
+              <MDBInput wrapperClass='mb-4 mx-5 w-100 ' style={{color:"white"}} labelClass='text-white' label='Email address' id='formControlLg' type='email' size="lg" name='email' onChange={(e)=>changeInputs(e)}/>
+              <MDBInput wrapperClass='mb-4 mx-5 w-100' style={{color:"white"}} labelClass='text-white' label='Password' id='formControlLg' type='password' size="lg" name="password" onChange={(e)=>changeInputs(e)}/>
 
               <p className="small mb-3 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
-              <MDBBtn outline className='mx-2 px-5' color='white' size='lg'>
+              <MDBBtn outline className='mx-2 px-5 text-white' color='white' size='lg'>
                 Login
               </MDBBtn>
 
@@ -48,7 +55,7 @@ function SignIn() {
               </div>
 
               <div>
-                <p className="mb-0">Don't have an account? <a href="#!" class="text-white-50 fw-bold">Sign Up</a></p>
+                <p className="mb-0">Don't have an account? <a href="signup" class="text-white-50 fw-bold">Sign Up</a></p>
 
               </div>
             </MDBCardBody>
