@@ -11,7 +11,6 @@ export const getUsers = async () => {
 export const registerUser= async (data) => {
   const response = await jwtInterceptor.post("/users/register",data);
   const newLawyer = await response.data;
-  console.log(newLawyer);
   return newLawyer;
 };
 // export const updateUser = async (data,email) => {
