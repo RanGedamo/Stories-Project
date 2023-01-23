@@ -1,6 +1,5 @@
 import React from "react";
 import { useState ,useRef, useEffect } from "react";
-import Header from "../Header/Header";
 
 
 import video1 from "../video/video1.mp4"
@@ -36,7 +35,7 @@ export default function Video(){
    
     return(
         <div className="video-cards">
-            <Header/>
+         
             <video onClick={onVideoClick} className="video-player" ref={vidRef} src={video2} loop autoPlay={true}/>
         </div>
     )

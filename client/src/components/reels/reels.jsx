@@ -1,7 +1,6 @@
 import React from "react";
 import Video from "../video/video";
 import "./reels.css";
-import Header from "../Header/Header";
 export default function Reels() {
   return (
     <>
