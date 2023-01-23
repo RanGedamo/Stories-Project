@@ -26,7 +26,7 @@ export default function Video(){
    
     return(
         <div className="video-cards">
-            <video onClick={onVideoClick} className="video-player" ref={vidRef} src={video1} loop autoPlay/>
+            <video onClick={onVideoClick} className="video-player" ref={vidRef} src={video1} loop autoPlay={true}/>
         </div>
     )
 }
