@@ -4,7 +4,7 @@ import SignIn from './pages/SignIn/SignIn'
 
 function Routing() {
   return (
-    <div>
+    <div className='main'>
         <Routes>
             <Route path='SignIn' element={<SignIn/>}/>
 
