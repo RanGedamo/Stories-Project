@@ -18,6 +18,10 @@ const [inputs,setInputs] = useState()
     setInputs({...inputs,[e.target.name]:e.target.value});
     console.log(inputs);
   }
+  const submitUser = async()=>{
+    await loginUser(inputs).then(res=>console.log(res))
+    console.log(inputs);
+  }
   return (
     <MDBContainer fluid style={{backgroundImage:"url('/images/public-images/sign.jpg')",backgroundSize:"100vh",backgroundSize:"100vw",width:"100"}}>
 
@@ -35,7 +39,7 @@ const [inputs,setInputs] = useState()
               <MDBInput wrapperClass='mb-4 mx-5 w-100' style={{color:"white"}} labelClass='text-white' label='Password' id='formControlLg' type='password' size="lg" name="password" onChange={(e)=>changeInputs(e)}/>
 
               <p className="small mb-3 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
-              <MDBBtn outline className='mx-2 px-5 text-white' color='white' size='lg'>
+              <MDBBtn outline className='mx-2 px-5 text-white' color='white' size='lg' onClick={()=>submitUser()}>
                 Login
               </MDBBtn>
 
