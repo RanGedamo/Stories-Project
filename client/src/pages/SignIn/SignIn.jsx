@@ -11,7 +11,7 @@ import {
 }
 from 'mdb-react-ui-kit';
 import { useState } from 'react';
-import e from 'cors';
+// import e from 'cors';
 
 function SignIn() {
 const [inputs,setInputs] = useState()
