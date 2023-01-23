@@ -1,15 +1,22 @@
+
 import { createSlice } from "@reduxjs/toolkit";
 import { getAll, update, deleteObj, getById, create } from "../services/groupServices"
 
 const initialState = {
     isLoading:false,
     error:"",
-    allgroups:[]  };
+    allgroups:[],
+    chosenGroups:[]
+};
   
   export const groupsSlice = createSlice({
     name: "groups",
     initialState,
-    reducers: {},
+    reducers: {
+        pickingChosenGroups:(state,action)=>{
+            state.chosenGroups=action.payload
+        }
+    },
     extraReducers:{
         [getAll.pending]:(state)=>{
             state.isLoading=true
@@ -69,6 +76,6 @@ const initialState = {
     }
   })
 
-export const {} = groupsSlice.actions;
+export const {pickingChosenGroups} = groupsSlice.actions;
 
 export default groupsSlice.reducer;

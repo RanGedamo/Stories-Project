@@ -11,7 +11,11 @@ const initialState = {
   export const eventsSlice = createSlice({
     name: "events",
     initialState,
-    reducers: {},
+    reducers: {
+        pickingChosenEvent:(state,action)=>{
+            state.chosenEvent=action.payload
+        }
+    },
     extraReducers:{
         [getAll.pending]:(state)=>{
             state.isLoading=true
@@ -71,6 +75,6 @@ const initialState = {
     }
   })
 
-export const {} = eventsSlice.actions;
+export const {pickingChosenEvent} = eventsSlice.actions;
 
 export default eventsSlice.reducer;
