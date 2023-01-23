@@ -4,7 +4,7 @@ import {
   MDBContainer,
   MDBIcon,
   MDBNavbarNav,
-  MDBNavbarItem,
+  MDBNavbarItem, 
   MDBNavbarLink,
   MDBNavbarToggler,
   MDBCollapse,
