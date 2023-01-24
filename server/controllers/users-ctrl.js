@@ -2,7 +2,7 @@ const userModel = require("../models/users-model");
 const bcrypt = require("bcryptjs");
 const validateRegister = require('../validation/register-validate');
 
-const verifyEmail = Math.floor(Math.random() * 9999)
+const verifyEmail = `${Math.floor(Math.random() * 9999)}`
 
 
 const getAll = async (req, res) => {

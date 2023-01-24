@@ -12,8 +12,15 @@ import {
 from 'mdb-react-ui-kit';
 import { useState } from 'react';
 import { logIn } from '../../services/userServices';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 function SignIn() {
+  const navigate= useNavigate()
+  const disptch=useDispatch()
+  const [errorValidate, setErrorValidate] = useState("")
+  const [error, setError] = useState(false)
+
 const [inputs,setInputs] = useState()
   const changeInputs = (e)=>{
     setInputs({...inputs,[e.target.name]:e.target.value});
@@ -21,8 +28,17 @@ const [inputs,setInputs] = useState()
   };
 
   const submitUser = async()=>{
-    await logIn(inputs).then(res=>console.log(res))
-    console.log(inputs);
+    return await disptch(logIn(inputs)).then(res=>{
+      if(res.payload.message){
+        setError(true)
+        return setErrorValidate(res.payload.message)
+      }
+      setErrorValidate("success")
+      setTimeout(() => {
+        return navigate('/')
+      }, 3000);
+    }).catch(error=>console.log(error))
+
   }
   return (
     <MDBContainer fluid style={{backgroundImage:"url('/images/public-images/sign.jpg')",backgroundSize:"100vh",backgroundSize:"100vw",width:"100"}}>
@@ -39,7 +55,10 @@ const [inputs,setInputs] = useState()
 
               <MDBInput wrapperClass='mb-4 mx-5 w-100 ' style={{color:"white"}} labelClass='text-white' label='Email address' id='formControlLg' type='email' size="lg" name='email' onChange={(e)=>changeInputs(e)}/>
               <MDBInput wrapperClass='mb-4 mx-5 w-100' style={{color:"white"}} labelClass='text-white' label='Password' id='formControlLg' type='password' size="lg" name="password" onChange={(e)=>changeInputs(e)}/>
-
+              {error? (<div className='d-flex justify-content-center'>
+              <div className='text-danger' style={{ border: "solid red 1px" }}>{errorValidate}</div>
+            </div>) : ""
+            }
               <p className="small mb-3 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
               <MDBBtn outline className='mx-2 px-5 text-white' color='white' size='lg' onClick={()=>submitUser()}>
                 Login
