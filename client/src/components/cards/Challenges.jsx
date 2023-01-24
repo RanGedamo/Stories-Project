@@ -11,7 +11,6 @@ export default function Challenges() {
       >
         <img
           src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/new/img(1).webp"
-          fluid
           className="w-100"
         />
         <a href="#!">

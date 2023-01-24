@@ -4,11 +4,12 @@ import {
 } from 'mdb-react-ui-kit';
 import StoriesData from '../story/StoriesData';
 
-export default function AStoryPopUppp() {
+export default function AStoryPopUppp({item}) {
   const [basicModal, setBasicModal] = useState(true);
   return (
       <MDBModal className=' d-flex justify-content-center' show={basicModal} setShow={setBasicModal} tabIndex='-1'>
-        <StoriesData/>
+        <StoriesData item={item}/>
+        {console.log(item)}
       </MDBModal>
   );
 }

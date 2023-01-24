@@ -1,7 +1,7 @@
 const storiesModel = require("../models/stories-model");
 
 const getAll = async (req, res) => {
-    await storiesModel.find({})
+    await storiesModel.find({}).populate(["creator","group"])
         .then((stories, error) => {
             if (error) {
                 return res.status(400).json({ success: false, error });
