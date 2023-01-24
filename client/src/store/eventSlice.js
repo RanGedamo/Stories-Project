@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getAll, update, deleteObj, getById, create } from "../services/eventServices"
+import { getAllEvents, update, deleteObj, getById, create } from "../services/eventServices"
 
 const initialState = {
     isLoading:false,
@@ -17,14 +17,14 @@ const initialState = {
         }
     },
     extraReducers:{
-        [getAll.pending]:(state)=>{
+        [getAllEvents.pending]:(state)=>{
             state.isLoading=true
         },
-        [getAll.fulfilled]:(state, action)=>{
+        [getAllEvents.fulfilled]:(state, action)=>{
             state.isLoading=false
             state.allevents=action.payload.events
         },
-        [getAll.rejected]:(state, action)=>{
+        [getAllEvents.rejected]:(state, action)=>{
             state.isLoading=false
             state.error=action.payload
         },

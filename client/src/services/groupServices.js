@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 const basicAPI = "http://localhost:6060/groups";
-const getAll =  createAsyncThunk( "groups/getAll",(arg,{rejectWithValue}) => {
+const getAllGroups =  createAsyncThunk( "groups/getAll",(arg,{rejectWithValue}) => {
   return fetch(`${basicAPI}`)
     .then((res) => res.json())
     .catch((error) => {
@@ -61,4 +61,4 @@ const create = createAsyncThunk("groups/create",async (group) => {
       .then((res) => console.log(res, "success"));
   } );
 
-export { getAll, update, deleteObj, getById, create };
+export { getAllGroups, update, deleteObj, getById, create };

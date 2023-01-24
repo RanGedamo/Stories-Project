@@ -1,14 +1,15 @@
 
 import { createSlice } from "@reduxjs/toolkit";
-import { update, deleteObj, getById } from "../services/eventServices"
+import { update, deleteObj, getById, logIn, register, getAllUsers} from "../services/userServices"
 import { pickingChosenGroups } from "./groupSlice"
-import { useDispatch } from "react-redux";
-const dispatch= useDispatch()
+// import { useDispatch } from "react-redux";
+// const dispatch= useDispatch()
 
 const initialState={
     user:{},
-    isLaoding:false,
-    error:""
+    isLoading:false,
+    error:"",
+    allUsers:[]
 }
 
   export const usersSlice = createSlice({
@@ -16,11 +17,22 @@ const initialState={
     initialState,
     reducers: {
         logOut:(state)=>{
-            state.user={},
-            state.error=""
+            // state.error="",
+            state.user={}
         }
     },
-    extraRducer:{
+    extraReducer:{
+        [getAllUsers.pending]:(state)=>{
+            state.isLoading=true
+        },
+        [getAllUsers.fulfilled]:(state, action)=>{
+            state.isLoading=false
+            state.allUsers=action.payload.users
+        },
+        [getAllUsers.rejected]:(state, action)=>{
+            state.isLoading=false
+            state.error=action.payload
+        },
         [logIn.pending]:(state)=>{
             state.isLoading=true
         },

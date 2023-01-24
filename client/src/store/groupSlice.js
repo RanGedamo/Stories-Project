@@ -1,6 +1,6 @@
 
 import { createSlice } from "@reduxjs/toolkit";
-import { getAll, update, deleteObj, getById, create } from "../services/groupServices"
+import { getAllGroups, update, deleteObj, getById, create } from "../services/groupServices"
 
 const initialState = {
     isLoading:false,
@@ -18,14 +18,14 @@ const initialState = {
         }
     },
     extraReducers:{
-        [getAll.pending]:(state)=>{
+        [getAllGroups.pending]:(state)=>{
             state.isLoading=true
         },
-        [getAll.fulfilled]:(state, action)=>{
+        [getAllGroups.fulfilled]:(state, action)=>{
             state.isLoading=false
             state.allgroups=action.payload.groups
         },
-        [getAll.rejected]:(state, action)=>{
+        [getAllGroups.rejected]:(state, action)=>{
             state.isLoading=false
             state.error=action.payload
         },
