@@ -4,7 +4,7 @@ import { getAllEvents, update, deleteObj, getById, create } from "../services/ev
 const initialState = {
     isLoading:false,
     error:"",
-    allevents:[],
+    allEvents:[],
     chosenEvent:{}
   };
   
@@ -22,7 +22,7 @@ const initialState = {
         },
         [getAllEvents.fulfilled]:(state, action)=>{
             state.isLoading=false
-            state.allevents=action.payload.events
+            state.allEvents=action.payload.events
         },
         [getAllEvents.rejected]:(state, action)=>{
             state.isLoading=false
