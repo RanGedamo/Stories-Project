@@ -37,7 +37,7 @@ function SignUp() {
     formData.append("file", image)
     formData.append("folder", "avatar")
     formData.append("upload_preset", "avatar")
-    await axios.post('https://api.cloudinary.com/v1_1/dcapisw77/image/upload', formData)
+    await axios.post('https://api.cloudinary.com/v1_1/dcapisw77/video/upload', formData)
       .then(res => {
         setLoading(true)
         if (res.data.url) {
