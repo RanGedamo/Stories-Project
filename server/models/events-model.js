@@ -7,5 +7,5 @@ const eventsSchema = schema({
   description: { type: String, required: true },
   participates: [{ type: schema.Types.ObjectId, ref: "user" }],
   eventDate: { type: String, required: true },
-});
+}, { timestamps: true });
  module.exports=mongoose.model("event", eventsSchema);

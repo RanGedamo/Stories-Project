@@ -16,10 +16,12 @@ app.use(helmet());
 const userRouter=require("./router/user-router")
 const groupRouter=require("./router/group-router")
 const eventRouter=require("./router/event-router")
+const storyRouter=require("./router/story-router")
 
 app.use("/users",userRouter)
 app.use("/groups",groupRouter)
 app.use("/events",eventRouter)
+app.use("/stories",storyRouter)
 
 
 // app.use("/user", require("./routes/userRouter"));

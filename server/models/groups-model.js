@@ -14,6 +14,6 @@ const groupsSchema = schema({
   users: [{ type: schema.Types.ObjectId, ref: "user" }],
   events: [{ type: schema.Types.ObjectId, ref: "event" }],
   avatar: { type: String},
-});
+}, { timestamps: true });
 
 module.exports=mongoose.model("group", groupsSchema);
