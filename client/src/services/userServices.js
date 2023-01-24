@@ -51,9 +51,6 @@ const register = createAsyncThunk("users/register",(user) => {
       body:JSON.stringify(user)
     })
       .then((res) => res.json())
-      .then((res) => console.log(res, "success"))
-      .catch((res) => console.log(res, "false"));
-
   } );
   
 const logIn = createAsyncThunk("users/logIn",(user) => {

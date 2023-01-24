@@ -14,6 +14,7 @@ import {
 import axios from 'axios';
  import {useDispatch} from "react-redux"
 import { register } from '../../services/userServices';
+import { useNavigate } from 'react-router-dom';
 
 function SignUp() {
   const [errInput,setErrInput] = useState("")
@@ -21,6 +22,7 @@ function SignUp() {
   const [inputs, setInputs] = useState()
   const [image, setImage] = useState()
   const [userAvatar, setUserAvatar] = useState()
+ const navigate= useNavigate()
   const disptch=useDispatch()
 
   const changeInputs = (e) => {
@@ -29,6 +31,7 @@ function SignUp() {
   }
 
   const submitAvatar = async () => {
+    console.log("fasfas");
     setLoading(true)
     const formData = new FormData()
     formData.append("file", image)
@@ -38,7 +41,10 @@ function SignUp() {
       .then(res => {
         setLoading(true)
         if (res.data.url) {
+          setErrInput("")
+          console.log("fasfas");
           const data = res.data.url
+          console.log(data);
           const myData = { ...inputs, avatar: data };
           return submitUser(myData)
         }
@@ -48,13 +54,15 @@ function SignUp() {
   };
 
   const submitUser = async (data) => {
-  
+
     setLoading(false)
-    return await register(data).then(res => console.log(res))
-      .catch(error =>{ 
-        if(error.response.data.message)
-        setErrInput(error.response.data.message)
-      })
+    return await disptch(register(data)).then(res =>{
+      if(res.payload.message){
+        return setErrInput(res.payload.message)
+      }
+      navigate('/otp')
+    })
+
   };
 
   return (
@@ -73,7 +81,7 @@ function SignUp() {
                 <MDBInput wrapperClass='mb-4 mx-5 w-100' style={{ color: "white" }} labelClass='text-white' label='Confirm Password' id='formControlLg' type='password' size="lg" name='confirmPassword' onChange={(e) => changeInputs(e)} />
                 <MDBInput wrapperClass='mb-4 mx-5 w-100' style={{ color: "white" }} labelClass='text-white' label='Image' id='formControlLg' type='file' size="lg" onChange={(e) => setImage(e.target.files[0])} />
                
-             {errInput?(<div style={{color:"red",fontSize:25,fontFamily:"-moz-initial",border:"1px red solid" ,width:"100%"}} >{errInput}</div>):loading?
+             {errInput.length>5?(<div style={{color:"red",fontSize:25,fontFamily:"-moz-initial",border:"1px red solid" ,width:"100%"}} >{errInput}</div>):loading?
               <div style={{width:200,height:120}}><img src='https://thumbs.gfycat.com/AgitatedInexperiencedImperialeagle-max-1mb.gif' width={112} height={80}/></div>:""}
             
                 <p className="small mb-3 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>

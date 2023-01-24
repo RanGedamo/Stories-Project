@@ -1,14 +1,20 @@
-const Joi = require('joi');
-const passwordComplexity = require("joi-password-complexity");
+const validator = require('validator');
+const isEmpty = require('is-empty');
 
-const registerValidate = (data)=>{
-    const userRegister = Joi.object({
-        userName:Joi.string().required(),
-        email:Joi.string().email().required(),
-        password:passwordComplexity().required(),
-        avatar:Joi.string().required()
-    })
-    return userRegister.validate(data);
-};
+module.exports = validateRegister = (user) => {
+    errors = {};
+    user.userName = isEmpty(user.userName) ? "" : user.userName;
+    user.email = isEmpty(user.email) ? "" : user.email;
+    user.password = isEmpty(user.password) ? "" : user.password;
+    user.confirmPassword = isEmpty(user.confirmPassword) ? "" : user.confirmPassword;
 
-module.exports = {registerValidate}
+    if (validator.isEmpty(user.userName)) errors.message = "User Name Is required";
+    if (validator.isEmpty(user.email)) errors.message = "email Is required";
+    if(!validator.isEmail(user.email)) errors.message = "email Is not valid";
+    if (validator.isEmpty(user.password)) errors.message = "password Is required";
+    if (!validator.equals(user.password, user.confirmPassword)) errors.message = "Passwords not match"
+    return {
+        errors,
+        isValid: isEmpty(errors)
+    }
+}
