@@ -9,7 +9,6 @@ import {
 } from 'mdb-react-ui-kit';
 import Challenges from "../../components/challenges/challenges";
 import Events from "../../components/events/Events";
-import MostActive from "../../components/sections/MostActive";
 import MyCalendar from '../../pages/Calender/Calender';
 import Reels from '../story/Reels';
 import About from '../../pages/About/About';
@@ -72,7 +71,6 @@ export default function ComunnityTabs() {
           <MDBCol md={12} className="mb-2" style={{ background: "white"}}>
           <GoogleMapLocation />
 
-         <MostActive/>
           </MDBCol>
         </MDBCol>
         </MDBRow>

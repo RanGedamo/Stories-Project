@@ -5,7 +5,6 @@ import Footer from "./components/Footer/Footer";
 // import Comunnity from "./pages/Comunnity/Comunnity";
 import Routing from "./Routing";
 import Home from "./pages/Home/Home";
-import MostActive from "./components/sections/MostActive";
 
 
 
@@ -16,7 +15,6 @@ export default function App() {
       {/* <NavBar/>  */}
         <Routing/>
       </BrowserRouter> 
-      <MostActive/>
       <Footer/>
     </div>
   )
