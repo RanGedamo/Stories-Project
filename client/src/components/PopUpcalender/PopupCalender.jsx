@@ -9,6 +9,7 @@ import {
   MDBModalBody,
   MDBModalFooter,
 } from 'mdb-react-ui-kit';
+import GoogleMapLocation from '../GoogleMap/GoogleMap';
 
 export default function PopUpCalender() {
   const [basicModal, setBasicModal] = useState(true);
@@ -26,6 +27,11 @@ export default function PopUpCalender() {
             </MDBModalHeader>
             <MDBModalBody>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum odit accusamus excepturi nemo animi. Distinctio commodi id voluptate voluptates, tempora itaque dolore ab, illum, debitis totam nesciunt. Quos, ratione repudiandae!</p>
+            
+            <div>
+
+            <GoogleMapLocation/>
+            </div>
             </MDBModalBody>
 
             <MDBModalFooter>
