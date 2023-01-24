@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
+import Otp from './pages/OTP/OtpVyrify'
 import SignIn from './pages/SignIn/SignIn'
 import SignUp from './pages/SignUp/SignUp'
 
@@ -8,6 +9,7 @@ function Routing() {
     <div className='main'>
         <Routes>
             <Route path='SignIn' element={<SignIn/>}/>
+            <Route path='Otp' element={<Otp/>}/>
             <Route path='SignUp' element={<SignUp/>}/>
         </Routes>
     </div>
