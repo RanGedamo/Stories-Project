@@ -1,17 +1,16 @@
 import { BrowserRouter } from "react-router-dom";
 import "./App.css";
-// import Routing from "./Routing";
-import Home from "./pages/Home/Home.jsx";
+import Routing from "./Routing";
+
 
 
 export default function App() {
   return (
     <div className="App">
-      {/* <BrowserRouter> */}
+      <BrowserRouter>
       {/* <NavBar/> */}
-      {/* <Routing/> */}
-      {/* </BrowserRouter> */}
-      <Home/>
+      <Routing/>
+      </BrowserRouter>
     </div>
   )
 };
