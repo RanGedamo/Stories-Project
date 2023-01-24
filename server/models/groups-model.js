@@ -13,6 +13,7 @@ const groupsSchema = schema({
   ],
   users: [{ type: schema.Types.ObjectId, ref: "user" }],
   events: [{ type: schema.Types.ObjectId, ref: "event" }],
+  stories: [{ type: schema.Types.ObjectId, ref: "story" }],
   avatar: { type: String},
 }, { timestamps: true });
 

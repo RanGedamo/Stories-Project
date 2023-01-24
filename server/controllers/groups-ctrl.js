@@ -1,7 +1,7 @@
 const groupsModel = require("../models/groups-model");
 
 const getAll = async (req, res) => {
-    await groupsModel.find({})
+    await groupsModel.find({}).populate(["users","events","managers"])
         .then((groups, error) => {
             if (error) {
                 return res.status(400).json({ success: false, error });
