@@ -1,10 +1,10 @@
 import { MDBCol, MDBContainer, MDBRow } from "mdb-react-ui-kit";
 import React from "react";
-import Reels from "../../components/story/Reels";
+import Reels from "../../components/story/reels";
 
 
 
-function Comunnity() {
+ export default function Community() {
   return (
     <MDBContainer>
       <MDBRow style={{ background: "red", height: "20vh" }}>ggg</MDBRow>
@@ -26,5 +26,3 @@ function Comunnity() {
     </MDBContainer>
   );
 }
-
-export default Comunnity;

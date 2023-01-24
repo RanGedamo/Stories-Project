@@ -28,7 +28,7 @@ export default function Events() {
               lead-in to additional content. This content is a little bit
               longer.
             </MDBCardText>
-          </MDBCardBody>{" "}
+          </MDBCardBody>
         </MDBCol>
       </MDBRow>
     </MDBCard>

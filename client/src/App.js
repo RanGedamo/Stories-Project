@@ -1,7 +1,7 @@
 import { BrowserRouter } from "react-router-dom";
 import "./App.css";
 import NavBar from "./components/navbar/NavBar";
-import Comunnity from "./pages/Comunnity/Comunnity";
+import Comunnity from "./pages/Community/Community";
 import Routing from "./Routing";
 
 
