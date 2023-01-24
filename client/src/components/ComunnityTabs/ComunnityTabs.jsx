@@ -9,9 +9,9 @@ import {
 } from 'mdb-react-ui-kit';
 import Challenges from "../../components/challenges/challenges";
 import Events from "../../components/events/Events";
-import Reels from "../../components/reels/reels";
 import MostActive from "../../components/sections/MostActive";
 import MyCalendar from '../../pages/Calender/Calender';
+import Reels from '../story/Reels';
 
 
 export default function ComunnityTabs() {

@@ -1,11 +1,6 @@
 import { MDBCol, MDBContainer, MDBRow } from "mdb-react-ui-kit";
 import React from "react";
-import SoundTrack from "../../components/cards/SoundTrack";
-import Challenges from "../../components/challenges/challenges";
 import ComunnityTabs from "../../components/ComunnityTabs/ComunnityTabs";
-import Events from "../../components/events/Events";
-import Reels from "../../components/reels/reels";
-import MostActive from "../../components/sections/MostActive";
 
 function Comunnity() {
   return (
