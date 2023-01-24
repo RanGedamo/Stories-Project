@@ -66,22 +66,4 @@ export default function StoriesData() {
       />
     </>
   );
-}
-
-// stories.map((story, index) => {
-//     stories.push({
-//       url: "images/public-images/video.mp4",
-//       type: "video",
-//       header: {
-//         heading: "Burak Deniz",
-//         subheading: "burakdeniz@gmail.com",
-//         profileImage:
-//           "https://th.bing.com/th?id=ORMS.a94a9012f80a59bd6d4aacc139ee2ec8&pid=Wdp&w=612&h=304&qlt=90&c=1&rs=1&dpr=1.25&p=0",
-//       },
-//       seeMore: true,
-//       duration: 1000,
-//       seeMore: ({ close }) => {
-//         return <div onClick={close}>Hello, click to close this.</div>;
-//       },
-//     });
-//   }),
+  };
