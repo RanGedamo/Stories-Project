@@ -7,13 +7,13 @@ import {
   MDBCardSubTitle,
   MDBCardText,
   MDBRadio, MDBBtnGroup
-} from 'mdb-react-ui-kit';
+} from 'mdb-react-ui-kit'; 
 import gif from "../Media/footballChallenge.gif"
 export default function OsimSchuna() {
   return (
     <MDBCard>
       <MDBCardBody>
-        <MDBCardTitle>Daily Challenge</MDBCardTitle>
+        <MDBCardTitle> Daily Challenge</MDBCardTitle>
         <MDBCardImage
           src={gif}
           position="top"
