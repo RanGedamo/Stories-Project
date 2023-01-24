@@ -5,7 +5,7 @@ import { getAll, update, deleteObj, getById, create } from "../services/groupSer
 const initialState = {
     isLoading:false,
     error:"",
-    allgroups:[],
+    allGroups:[],
     chosenGroups:[]
 };
   
@@ -23,7 +23,7 @@ const initialState = {
         },
         [getAll.fulfilled]:(state, action)=>{
             state.isLoading=false
-            state.allgroups=action.payload.groups
+            state.allGroups=action.payload.groups
         },
         [getAll.rejected]:(state, action)=>{
             state.isLoading=false

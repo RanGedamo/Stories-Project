@@ -1,7 +1,7 @@
 const eventsModel = require("../models/events-model");
 
 const getAll = async (req, res) => {
-    await eventsModel.find({}).populate("groups")
+    await eventsModel.find({}).populate("group")
         .then((events, error) => {
             if (error) {
                 return res.status(400).json({ success: false, error });
