@@ -3,7 +3,7 @@ import { MDBCol } from "mdb-react-ui-kit";
 
 export default function SoundTrack({ children }) {
   return (
-    <MDBCol md="4" w-100>
+    <MDBCol md="4">
       {children}
     </MDBCol>
   );

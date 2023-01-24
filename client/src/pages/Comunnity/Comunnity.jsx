@@ -1,27 +1,31 @@
 import { MDBCol, MDBContainer, MDBRow } from "mdb-react-ui-kit";
 import React from "react";
+import SoundTrack from "../../components/cards/SoundTrack";
+import Challenges from "../../components/challenges/challenges";
+import ComunnityTabs from "../../components/ComunnityTabs/ComunnityTabs";
+import Events from "../../components/events/Events";
 import Reels from "../../components/reels/reels";
+import MostActive from "../../components/sections/MostActive";
 
 function Comunnity() {
   return (
-    <MDBContainer>
-      <MDBRow style={{ background: "red", height: "20vh" }}>ggg</MDBRow>
-      <MDBRow style={{ background: "yellow", height: "100vh" }}>
-        <MDBCol
-          className="flex-column"
-          md={6}
-          style={{ background: "blue", height: "100vh" }}
-        >
-          <MDBCol md={6}>
-            <Reels />
-          </MDBCol>
-          <MDBCol md={6}>
-            
-          </MDBCol>
-        </MDBCol>
-        <MDBCol md={6} style={{ background: "blue", height: "100vh" }}></MDBCol>
+    <div className="container-fluid">
+      <MDBRow className="d-flex justify-content-center align-items-end " style={{ backgroundImage:"url(https://petapixel.com/assets/uploads/2022/07/DALLEcopy.jpg)", height: "50vh" }}>
+
+      <MDBCol lg='4' md='6' className=''>
+        <img
+          src='https://mdbootstrap.com/img/new/standard/city/047.webp'
+          className='img-fluid rounded-pill w-50'
+          alt=''
+        />
+      </MDBCol>
       </MDBRow>
-    </MDBContainer>
+      <MDBContainer>
+      <ComunnityTabs/>
+
+      </MDBContainer>
+     
+    </div>
   );
 }
 
