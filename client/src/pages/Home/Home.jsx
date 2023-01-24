@@ -23,18 +23,18 @@ function Home() {
   const groups = useSelector((state) => state.group);
   return (
     <MDBContainer className="fluid">
-        <Sidebar/>
+        {/* <Sidebar/> */}
       <MDBRow className="mt-4" >
         <MDBCol className="mt-2">
           <StoriesCarousel />
         </MDBCol>
       </MDBRow>
       <MDBRow className=" d-flex align-self-center">
-        <MDBCol size={2} className=" ms-2 p-0"><StoriesData/></MDBCol>
+        {/* <MDBCol size={2} className=" ms-2 p-0"><StoriesData/></MDBCol>
         <MDBCol size={2} className=" ms-5 p-0"><StoriesData/></MDBCol>
         <MDBCol size={2} className=" ms-5 p-0"><StoriesData/></MDBCol>
         <MDBCol size={2} className=" ms-5 p-0"><StoriesData/></MDBCol>
-        <MDBCol size={2} className=" ms-5 p-0"><StoriesData/></MDBCol>
+        <MDBCol size={2} className=" ms-5 p-0"><StoriesData/></MDBCol> */}
       </MDBRow>
       <MDBRow className=" row-cols-3 m-4">
         {/* {groups.allGroups?.map((key, index) => {
@@ -59,7 +59,7 @@ function Home() {
         <CreateCommunity />
       </MDBCol>
       <MDBRow className="mt-4 d-flex justify-content-around">
-          <ProfileStatistics />
+          {/* <ProfileStatistics /> */}
       </MDBRow>
     </MDBContainer>
   );
