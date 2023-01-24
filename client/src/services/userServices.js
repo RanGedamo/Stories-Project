@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-const basicAPI = "http://localhost:8080/users";
+const basicAPI = "http://localhost:6060/users";
 
 const update = createAsyncThunk("users/update",(user) => {
   return fetch(`${basicAPI}/byId/${user.id}/update`, {
@@ -42,7 +42,7 @@ const getById = createAsyncThunk("users/getById",(user) => {
 });
 
 const register = createAsyncThunk("users/register",(user) => {
-   console.log(user);
+   console.log(user,"gfgfgfg");
   return fetch(`${basicAPI}/register`, {
       method: 'POST',
       mode: 'cors',

@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-const basicAPI = "http://localhost:8080/groups";
+const basicAPI = "http://localhost:6060/groups";
 const getAll =  createAsyncThunk( "groups/getAll",(arg,{rejectWithValue}) => {
   return fetch(`${basicAPI}`)
     .then((res) => res.json())
