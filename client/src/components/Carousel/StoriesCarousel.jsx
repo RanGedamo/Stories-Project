@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Avatar from "../avatar/Avatar";
 import { statusCarousel } from "./data";
 import { MDBIcon } from "mdb-react-ui-kit";
 import "./stories.css";
-
+import { useDispatch } from "react-redux";
 export default function StoriesCarousel() {
   const handleSlide = (direction) => {
     const slider = document.getElementsByClassName("carousel-body")[0];
     if (direction === "left") slider.scrollBy(-400, 0);
     else slider.scrollBy(400, 0);
   };
-
+  let dispatch = useDispatch()
+  useEffect(()=>{
+  },[])
   return (
     <section className="check">
       <div className="left-icon" onClick={() => handleSlide("left")}>
