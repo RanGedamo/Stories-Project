@@ -12,7 +12,7 @@ import {
 export default function Events() {
   return (
     <MDBCard className="">
-      <MDBRow className="g-0">
+      <MDBRow className="m-2 d-flex-column justify-content-center align-items-center">
         <MDBCol md={6}>
           <MDBCardImage
             src="https://mdbootstrap.com/img/new/standard/city/041.webp"
