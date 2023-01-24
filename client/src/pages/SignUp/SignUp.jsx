@@ -10,7 +10,7 @@ import {
   MDBIcon
 }
   from 'mdb-react-ui-kit';
-import { register } from '../../services/usersServices';
+import { register } from '../../services/userServices';
 import axios from 'axios';
  import {useDispatch} from "react-redux"
 
