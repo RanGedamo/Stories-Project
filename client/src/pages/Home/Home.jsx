@@ -4,30 +4,33 @@ import StoriesCarousel from "../../components/Carousel/StoriesCarousel";
 import StoriesData from "../../components/story/StoriesData";
 import { getAllGroups } from "../../services/groupServices";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
 import Challenges from "../../components/cards/Challenges";
 import CreateCommunity from "../../components/createCommunity/CreateCommunity";
-import ProfileStatistics from "../../components/cards/ProfileStatistics"
+import ProfileStatistics from "../../components/cards/ProfileStatistics";
 // import Sidebar from "../../components/sidebar/Sidebar";
 // import StoriesData from "../../components/story/StoriesData"
 
 // import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
 
-
 function Home() {
-  const dispatch = useDispatch();
+  const [groupName, setGroupName] = useState(false);
+  const API = "http://localhost:6060/groups";
+
   useEffect(() => {
-    dispatch(getAllGroups());
+    try {
+      return fetch(API)
+        .then((response) => response.json())
+        .then((data) => setGroupName(data.groups));
+    } catch (error) {}
   }, []);
-  const groups = useSelector((state) => state.group);
+
   return (
     <MDBContainer className="fluid">
-        {/* <Sidebar/> */}
-      <MDBRow className="mt-4" >
-        <MDBCol className="mt-2">
-          <StoriesCarousel />
-        </MDBCol>
+      {/* <Sidebar/> */}
+      <MDBRow className="mt-4">
+        <MDBCol className="mt-2">{/* <StoriesCarousel /> */}</MDBCol>
       </MDBRow>
       <MDBRow className=" d-flex align-self-center">
         {/* <MDBCol size={2} className=" ms-2 p-0"><StoriesData/></MDBCol>
@@ -37,9 +40,13 @@ function Home() {
         <MDBCol size={2} className=" ms-5 p-0"><StoriesData/></MDBCol> */}
       </MDBRow>
       <MDBRow className=" row-cols-3 m-4">
-        {groups.allGroups?.map((key, index) => {
-          return <ProfileStatistics key={key} item={key} />;
-        })}
+        {groupName == false ? (
+          <div>Loading...</div>
+        ) : (
+          groupName?.map((key, index) => {
+            return <ProfileStatistics key={key} item={key} />;
+          })
+        )}
       </MDBRow>
       <MDBRow className="mb-5 mt-6 mb-8">
         <MDBCol>
@@ -55,11 +62,11 @@ function Home() {
           <Challenges />
         </MDBCol>
       </MDBRow>
-      <MDBCol className="d-flex justify-content-center" >
+      <MDBCol className="d-flex justify-content-center">
         <CreateCommunity />
       </MDBCol>
       <MDBRow className="mt-4 d-flex justify-content-around">
-          <ProfileStatistics />
+        {/* <ProfileStatistics /> */}
       </MDBRow>
     </MDBContainer>
   );
