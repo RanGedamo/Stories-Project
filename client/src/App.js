@@ -2,7 +2,7 @@ import { BrowserRouter } from "react-router-dom";
 import "./App.css";
 import NavBar from "./components/bars/NavBar";
 import Sidebar from "./components/bars/Sidebar";
-import Otp from "./pages/OTP/OtpVyrify";
+import MyCalendar from "./pages/Calender/Calender";
 import View  from "./pages/stories/View"
 
 
@@ -13,9 +13,9 @@ export default function App() {
     <div className="App">
       {/* <BrowserRouter> */}
       {/* <NavBar/> */}
-      <Otp/>
-        {/* <Routing />
-      </BrowserRouter> */}
+        <Routing />
+      </BrowserRouter>
+    <MyCalendar/>
     </div>
   )
 };
