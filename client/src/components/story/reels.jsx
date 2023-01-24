@@ -7,9 +7,9 @@ export default function Reels() {
     <>
       <center className="app">
         <div className="video-container" id="video-container">
-            <Video/>
-            <Video/>
-            <Video/>
+          <Video />
+          <Video />
+          <Video />
         </div>
       </center>
     </>
