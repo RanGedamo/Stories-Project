@@ -55,9 +55,9 @@ function SignUp() {
 
   const submitUser = async (data) => {
     setLoading(false)
-    return await disptch(register(data)).then(res =>{
-      if(res.payload.message){
-        return setErrInput(res.payload.message)
+    return await register(data).then(res =>{
+      if(res.message){
+        return setErrInput(res.message)
       }
       Cookies.set('verify',JSON.stringify(data))
       navigate('/otp')

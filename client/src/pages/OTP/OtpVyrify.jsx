@@ -11,15 +11,14 @@ import {
 }
   from 'mdb-react-ui-kit';
 import Cookies from 'js-cookie';
-import { logIn, register } from '../../services/userServices';
-import { useDispatch } from 'react-redux';
+
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { register } from '../../services/userServices';
 
 function Otp() {
   const [submit, setSubmit] = useState()
   const [errorValidate, setErrorValidate] = useState("")
-  const disptch = useDispatch()
   const navigate = useNavigate()
 
   const changeVerifyCode = (e) => {
@@ -29,12 +28,12 @@ function Otp() {
     setSubmit(verify)
   }
   const submitUser = async () => {
-    return await disptch(register(submit)).then(res => {
+    return await register(submit).then(res => {
       console.log(res);
-      if (res.payload.verify) {
-        return setErrorValidate(res.payload.verify);
+      if (res.verify) {
+        return setErrorValidate(res.verify);
       }
-      console.log(res.payload.verify);
+      console.log(res.verify);
       setErrorValidate("success")
       setTimeout(() => {
         navigate('/signin')

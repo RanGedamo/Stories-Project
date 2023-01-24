@@ -8,6 +8,7 @@ import { getAllStories } from "../../services/storyServices";
 import StoryPopUp from "../PopUp/StoryPopUp";
 export default function StoriesCarousel() {
   const [toggle, setToggle] = useState(false);
+  const [story, setStory] = useState(false);
   const handleToggle = () => {
     setToggle(!toggle);
   };
@@ -16,19 +17,27 @@ export default function StoriesCarousel() {
     if (direction === "left") slider.scrollBy(-400, 0);
     else slider.scrollBy(400, 0);
   };
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getAllStories());
-  }, []);
-  let stories = useSelector((state) => state.story.allstories);
-  console.log(stories);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(getAll());
+  // }, []);
+  // let stories = useSelector((state) => state.story.allstories);
+  useEffect(()=>{
+    try {
+       fetch("http://localhost:6060/stories/")
+      .then((res)=>res.json()).then((res)=>setStory(res.stories))
+    } catch (error) {
+      
+    }
+  },[])
+  console.log(story);
   return (
     <section className="check">
       <div className="left-icon" onClick={() => handleSlide("left")}>
         <MDBIcon fas icon="angle-left" />
       </div>
       <div className="carousel-body">
-        {stories.map((item, i) => {
+        {story==false?<div>Loading</div>:story?.map((item, i) => {
           return (
             <section key={i} className="avatar-detail">
               <div className="avatar-box">
