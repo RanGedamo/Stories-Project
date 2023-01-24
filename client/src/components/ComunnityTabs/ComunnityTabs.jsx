@@ -68,7 +68,8 @@ export default function ComunnityTabs() {
             <Events/>
           </MDBCol>
           <MDBCol md={12} className="mb-2 ">
-<iframe className='podcast'  src="https://open.spotify.com/embed/album/6UhLHlFHzSMWwo50SpUbaL?utm_source=generator" width="100%" height="250" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>          </MDBCol>
+<iframe className='podcast '  src="https://open.spotify.com/embed/album/6UhLHlFHzSMWwo50SpUbaL?utm_source=generator" width="100%" height="250" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>      
+    </MDBCol>
           <MDBCol md={12} className="mb-2" style={{ background: "white"}}>
           <GoogleMapLocation />
 
