@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getAll, update, deleteObj, getById, create } from "../services/storyServices.js"
+import { getAllStories, update, deleteObj, getById, create } from "../services/storyServices.js"
 
 const initialState = {
     isLoading:false,
     error:"",
-    allstories:[],
+    allStories:[],
     chosenStory:{}
   };
   
@@ -17,6 +17,7 @@ const initialState = {
         }
     },
     extraReducers:{
+<<<<<<< HEAD
         // [getAllStories.pending]:(state)=>{
         //     state.isLoading=true
         // },
@@ -28,6 +29,19 @@ const initialState = {
         //     state.isLoading=false
         //     state.error=action.payload
         // },
+=======
+        [getAllStories.pending]:(state)=>{
+            state.isLoading=true
+        },
+        [getAllStories.fulfilled]:(state, action)=>{
+            state.isLoading=false
+            state.allStories=action.payload.stories
+        },
+        [getAllStories.rejected]:(state, action)=>{
+            state.isLoading=false
+            state.error=action.payload
+        },
+>>>>>>> 19336efd7019888eb95931edb9b9d34d10f6dbc7
         [create.pending]:(state)=>{
             state.isLoading=true
         },

@@ -2,16 +2,15 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 const basicAPI = "http://localhost:6060/users";
 
-const getAllUsers =  createAsyncThunk( "users/getAll",(arg,{rejectWithValue}) => {
+const getAllUsers = () => {
   return fetch(`${basicAPI}`)
     .then((res) => res.json())
     .catch((error) => {
-      rejectWithValue(error)
       console.log(error);
     });
-});
+};
 
-const update = createAsyncThunk("users/update",(user) => {
+const update = (user) => {
   return fetch(`${basicAPI}/byId/${user.id}/update`, {
     method: "PUT",
     mode: 'cors',
@@ -24,9 +23,9 @@ const update = createAsyncThunk("users/update",(user) => {
     .catch((error) => {
       console.log(error);
     });
-})
+}
 
-const deleteObj = createAsyncThunk("users/deleteObj",(user) => {
+const deleteObj = (user) => {
   return fetch(`${basicAPI}/delete`, {
     method: "PUT",
     mode: 'cors',
@@ -39,19 +38,18 @@ const deleteObj = createAsyncThunk("users/deleteObj",(user) => {
     .catch((error) => {
       console.log(error);
     });
-});
+};
 
-const getById = createAsyncThunk("users/getById",(user) => {
+const getById = (user) => {
   return fetch(`${basicAPI}/byId/${user}`)
     .then((res) => res.json())
     .then((res) => console.log(res))
     .catch((error) => {
       console.log(error);
     });
-});
+};
 
-const register = createAsyncThunk("users/register",(user) => {
-   console.log(user,"gfgfgfg");
+const register = (user) => {
   return fetch(`${basicAPI}/register`, {
       method: 'POST',
       mode: 'cors',
@@ -60,10 +58,9 @@ const register = createAsyncThunk("users/register",(user) => {
       body:JSON.stringify(user)
     })
       .then((res) => res.json())
-  } );
+  } ;
   
-const logIn = createAsyncThunk("users/logIn",(user) => {
-    console.log(user);
+ const logIn = (user) => {
    return fetch(`${basicAPI}/logIn`, {
        method: 'POST',
        mode: 'cors',
@@ -74,6 +71,6 @@ const logIn = createAsyncThunk("users/logIn",(user) => {
        .then((res) => res.json())
 
  
-   } );
+   } ;
 
 export { update, deleteObj, getById, logIn, register, getAllUsers };

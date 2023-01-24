@@ -4,7 +4,7 @@ import { statusCarousel } from "./data";
 import { MDBBtn, MDBIcon } from "mdb-react-ui-kit";
 import "./stories.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getAll } from "../../services/storyServices";
+import { getAllStories } from "../../services/storyServices";
 import StoryPopUp from "../PopUp/StoryPopUp";
 export default function StoriesCarousel() {
   const [toggle, setToggle] = useState(false);
