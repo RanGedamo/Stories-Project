@@ -7,7 +7,7 @@ const verifyEmail = `${Math.floor(Math.random() * 9999)}`
 
 
 const getAll = async (req, res) => {
-  await userModel.find({}).populate("groups").then((users, error) => {
+  await userModel.find({}).then((users, error) => {
     if (error) {
       return res.status(400).json({ success: false, error });
     }
@@ -20,7 +20,7 @@ const getAll = async (req, res) => {
 
 const getById = async (req, res) => {
   await userModel
-    .findById(req.params.id).populate("groups")
+    .findById(req.params.id)
     .then((user) => {
       if (!user) {
         return res.json({ success: false, massage: "user is not found" });
