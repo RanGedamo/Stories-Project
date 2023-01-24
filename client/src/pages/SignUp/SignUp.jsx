@@ -10,14 +10,16 @@ import {
   MDBIcon
 }
   from 'mdb-react-ui-kit';
-import { registerUser } from '../../services/users-service';
+import { register } from '../../services/usersServices';
 import axios from 'axios';
+ import {useDispatch} from "react-redux"
 
 function SignUp() {
   const [errInput,setErrInput] = useState("")
   const [inputs, setInputs] = useState()
   const [image, setImage] = useState()
   const [userAvatar, setUserAvatar] = useState()
+  const disptch=useDispatch()
 
   const changeInputs = (e) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value });
@@ -40,7 +42,7 @@ function SignUp() {
   };
 
   const submitUser = async (data) => {
-    return await registerUser(data).then(res => console.log(res))
+    return await disptch(register(data)).then(res => console.log(res))
       .catch(error =>{ 
         if(error.response.data.message)
         setErrInput(error.response.data.message)
