@@ -7,6 +7,6 @@ const usersSchema=schema({
     password:{type:String,required:true},
     groups:[{type:schema.Types.ObjectId,ref:"group"}],
     avatar:{type:String,default:"",required:true}
-})
+}, { timestamps: true })
 
 module.exports=mongoose.model("user", usersSchema);
