@@ -28,10 +28,11 @@ const [inputs,setInputs] = useState()
   };
 
   const submitUser = async()=>{
-    return await disptch(logIn(inputs)).then(res=>{
-      if(res.payload.message){
+    return await logIn(inputs).then(res=>{
+      console.log(res);
+      if(res.message){
         setError(true)
-        return setErrorValidate(res.payload.message)
+        return setErrorValidate(res.message)
       }
       setErrorValidate("success")
       setTimeout(() => {
