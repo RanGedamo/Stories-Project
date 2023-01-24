@@ -3,7 +3,20 @@ const schema = mongoose.Schema;
 
 const eventsSchema = schema({
   eventName: { type: String, required: true },
-  location: { type: String, required: true },
+  location:  {
+    address: {
+      type: String,
+      required: true,
+    },
+    lat: { 
+      type: Number,
+      required: true,
+    },
+    lng: {
+      type: Number,
+      required: true,
+    },
+  },
   description: { type: String, required: true },
   participates: [{ type: schema.Types.ObjectId, ref: "user" }],
   eventDate: { type: String, required: true },
