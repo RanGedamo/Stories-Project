@@ -18,7 +18,8 @@ const [inputs,setInputs] = useState()
   const changeInputs = (e)=>{
     setInputs({...inputs,[e.target.name]:e.target.value});
     console.log(inputs);
-  }
+  };
+
   const submitUser = async()=>{
     await logIn(inputs).then(res=>console.log(res))
     console.log(inputs);
