@@ -1,6 +1,6 @@
-import { MDBCol, MDBContainer, MDBRow } from "mdb-react-ui-kit";
 import React from "react";
-import Reels from "../../components/story/Reels";
+import { MDBCol, MDBContainer, MDBRow } from "mdb-react-ui-kit";
+import Reels from "../../components/story/reels";
 
 
 

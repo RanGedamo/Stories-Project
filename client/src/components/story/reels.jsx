@@ -1,5 +1,5 @@
 import React from "react";
-import Video from "../Media/Video";
+import Video from "../Media/video";
 
 import "./reels.css";
 export default function Reels() {
