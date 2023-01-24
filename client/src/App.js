@@ -12,13 +12,12 @@ import MostActive from "./components/sections/MostActive";
 export default function App() {
   return (
     <div className="App">
-      <Home/>
-     {/* <BrowserRouter>  */}
-     {/* <NavBar/> */}
-       {/* <Routing/>
+     <BrowserRouter>  
+      {/* <NavBar/>  */}
+        <Routing/>
       </BrowserRouter> 
       <MostActive/>
-      <Footer/> */}
+      <Footer/>
     </div>
   )
 };

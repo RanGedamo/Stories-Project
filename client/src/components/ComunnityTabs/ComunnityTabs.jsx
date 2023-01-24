@@ -13,6 +13,7 @@ import MostActive from "../../components/sections/MostActive";
 import MyCalendar from '../../pages/Calender/Calender';
 import Reels from '../story/Reels';
 import About from '../../pages/About/About';
+import GoogleMapLocation from '../map/GoogleMap';
 
 
 export default function ComunnityTabs() {
@@ -69,9 +70,10 @@ export default function ComunnityTabs() {
           <MDBCol md={12} className="mb-2 ">
 <iframe className='podcast'  src="https://open.spotify.com/embed/album/6UhLHlFHzSMWwo50SpUbaL?utm_source=generator" width="100%" height="250" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>          </MDBCol>
           <MDBCol md={12} className="mb-2" style={{ background: "white"}}>
+          <GoogleMapLocation />
+
          <MostActive/>
           </MDBCol>
-          
         </MDBCol>
         </MDBRow>
 

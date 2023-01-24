@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   MDBBtn,
   MDBModal,
@@ -10,10 +10,22 @@ import {
   MDBModalFooter,
 } from 'mdb-react-ui-kit';
 import GoogleMapLocation from '../map/GoogleMap';
+import { getAllEvents } from '../../services/eventServices';
 
 
 export default function PopUpCalender() {
   const [basicModal, setBasicModal] = useState(true);
+
+  const [events, setEvents] = useState();
+
+
+  useEffect(()=>{
+    getAllEvents().then(res=>setEvents(res.events))
+  },[])
+
+  events?.map((event,i)=>{
+    console.log(events[i].location);
+  })
 
   const toggleShow = () => setBasicModal(!basicModal);
 

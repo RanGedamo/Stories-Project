@@ -1,16 +1,15 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 const basicAPI = "http://localhost:6060/events";
-const getAllEvents =  createAsyncThunk( "events/getAll",(arg,{rejectWithValue}) => {
-  return fetch(`${basicAPI}`)
+const getAllEvents =  async() => {
+  return await fetch(`${basicAPI}`)
     .then((res) => res.json())
     .catch((error) => {
-      rejectWithValue(error)
       console.log(error);
     });
-});
+};
 
-const update = createAsyncThunk("events/update",async (event) => {
+const update = async (event) => {
   const data=event.data
   return await fetch(`${basicAPI}/update/byId/${event.id}`, {
     method: "PUT",
@@ -24,10 +23,10 @@ const update = createAsyncThunk("events/update",async (event) => {
     .catch((error) => {
       console.log(error);
     });
-})
+}
 
-const deleteObj = createAsyncThunk("events/deleteObj",(event) => {
-  return fetch(`${basicAPI}/delete/byId/${event.id}`, {
+const deleteObj = async(event) => {
+  return await fetch(`${basicAPI}/delete/byId/${event.id}`, {
     method: "DELETE",
     mode: 'cors',
     cache: 'default',
@@ -38,18 +37,18 @@ const deleteObj = createAsyncThunk("events/deleteObj",(event) => {
     .catch((error) => {
       console.log(error);
     });
-});
+};
 
-const getById = createAsyncThunk("events/getById",(event) => {
-  return fetch(`${basicAPI}/byId/${event}`)
+const getById = async(event) => {
+  return await fetch(`${basicAPI}/byId/${event}`)
     .then((res) => res.json())
     .then((res) => console.log(res))
     .catch((error) => {
       console.log(error);
     });
-});
+};
 
-const create = createAsyncThunk("events/create",async (event) => {
+const create = async (event) => {
     return await fetch(`${basicAPI}/create`, {
       method: 'POST',
       mode: 'cors',
@@ -59,6 +58,6 @@ const create = createAsyncThunk("events/create",async (event) => {
     })
       .then((res) => res.json())
       .then((res) => console.log(res, "success"));
-  } );
+  } ;
 
 export { getAllEvents, update, deleteObj, getById, create };
