@@ -1,7 +1,7 @@
 import React from "react";
 import StoriesCarousel from "../../components/Carousel/StoriesCarousel";
 import ProfileStatistics from "../../components/cards/ProfileStatistics"
-// import Sidebar from "../../components/sidebar/Sidebar";
+import Sidebar from "../../components/sidebar/Sidebar";
 import StoriesData from "../../components/story/StoriesData"
 
 import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
@@ -10,9 +10,9 @@ import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
 function Home() {
   return (
     <MDBContainer className="fluid">
-        {/* <Sidebar/> */}
-      <MDBRow className="mt-4" >
-        <MDBCol className="mt-2">
+        <Sidebar/>
+      <MDBRow >
+        <MDBCol >
           <StoriesCarousel />
         </MDBCol>
       </MDBRow>
