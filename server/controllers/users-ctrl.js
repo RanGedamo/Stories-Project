@@ -30,7 +30,7 @@ const getById = async (req, res) => {
 };
 
 const logIn = async (req, res) => {
-    const user = await userModel.findOne({ email },'-password').populate("groups");
+  const user = await userModel.findOne({ email }, '-password').populate("groups").populate(["events", "managers", "users"]);
   const isMatch = await bcrypt.compare(
     `${req.body.password}`,
     `${user.password}`
