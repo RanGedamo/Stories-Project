@@ -2,7 +2,7 @@ import React from "react";
 import StoriesCarousel from "../../components/Carousel/StoriesCarousel";
 // import Sidebar from "../../components/sidebar/Sidebar";
 import StoriesData from "../../components/story/StoriesData";
-import { getAll } from "../../services/groupServices";
+import { getAllGroups } from "../../services/groupServices";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
@@ -10,15 +10,15 @@ import Challenges from "../../components/cards/Challenges";
 import CreateCommunity from "../../components/createCommunity/CreateCommunity";
 import ProfileStatistics from "../../components/cards/ProfileStatistics"
 // import Sidebar from "../../components/sidebar/Sidebar";
-import StoriesData from "../../components/story/StoriesData"
+// import StoriesData from "../../components/story/StoriesData"
 
-import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
+// import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
 
 
 function Home() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getAll());
+    dispatch(getAllGroups());
   }, []);
   const groups = useSelector((state) => state.group);
   return (
