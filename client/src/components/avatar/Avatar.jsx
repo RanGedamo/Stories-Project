@@ -6,7 +6,7 @@ export default function Avatar({ image }) {
 <div className="d-flex align-items-center">
     <img
       src={image}
-      className="rounded-circle mb-5"
+      className="rounded-circle"
       style={{ width: "50px", height: "50px" }}
       alt="Avatar"
     />

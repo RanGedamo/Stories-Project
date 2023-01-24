@@ -21,7 +21,7 @@ export default function StoriesCarousel() {
           return (
             <section className="avatar-detail">
               <div className="avatar-box">
-                <Avatar key={i} image={item.img} />
+                <Avatar className="avatarSize" key={i} image={item.img} />
               </div>
               <p className="avatar-name">{item.name}</p>
             </section>

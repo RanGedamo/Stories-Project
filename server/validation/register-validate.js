@@ -6,7 +6,7 @@ const registerValidate = (data)=>{
         userName:Joi.string().required(),
         email:Joi.string().email().required(),
         password:passwordComplexity().required(),
-        avatar:Joi.string().required()
+        avatar:Joi.string()
     })
     return userRegister.validate(data);
 };
