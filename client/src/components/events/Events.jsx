@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   MDBCard,
   MDBCardImage,
@@ -6,29 +6,31 @@ import {
   MDBCardTitle,
   MDBCardText,
   MDBRow,
-  MDBCol
-} from 'mdb-react-ui-kit';
+  MDBCol,
+} from "mdb-react-ui-kit";
 
 export default function Events() {
   return (
-    <MDBRow className='w-50'>
-      <MDBCol>
-        <MDBCard className='w-75'>
+    <MDBCard className="">
+      <MDBRow className="g-0">
+        <MDBCol md={6}>
           <MDBCardImage
-            src='https://mdbootstrap.com/img/new/standard/city/041.webp'
-            alt='...'
-            position='top'
-        
-          />
+            src="https://mdbootstrap.com/img/new/standard/city/041.webp"
+            alt="..."
+            position="top"
+          />{" "}
+        </MDBCol>
+        <MDBCol md={6}>
           <MDBCardBody>
             <MDBCardTitle>Card title</MDBCardTitle>
             <MDBCardText>
-              This is a longer card with supporting text below as a natural lead-in to additional content.
-              This content is a little bit longer.
+              This is a longer card with supporting text below as a natural
+              lead-in to additional content. This content is a little bit
+              longer.
             </MDBCardText>
-          </MDBCardBody>
-        </MDBCard>
-      </MDBCol>
-    </MDBRow>
+          </MDBCardBody>{" "}
+        </MDBCol>
+      </MDBRow>
+    </MDBCard>
   );
 }
