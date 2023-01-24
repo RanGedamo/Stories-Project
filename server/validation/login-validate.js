@@ -1,12 +1,16 @@
-const Joi = require('joi');
-const passwordComplexity = require("joi-password-complexity");
+const validator = require('validator');
+const isEmpty = require('is-empty');
 
-const validationLogin = (data)=>{
-    const lawyerLogin = Joi.object({
-        email:Joi.string().email().required(),
-        password:passwordComplexity().required()
-    })
-    return lawyerLogin.validate(data);
-};
+module.exports = validateLogin = (user) => {
+    errors = {};
+    user.email = isEmpty(user.email) ? "" : user.email;
+    user.password = isEmpty(user.password) ? "" : user.password;
 
-module.exports = {validationLogin}
+    if (validator.isEmpty(user.email)) errors.message = "email Is required";
+    if(!validator.isEmail(user.email)) errors.message = "email Is not valid";
+    if (validator.isEmpty(user.password)) errors.message = "password Is required";
+    return {
+        errors,
+        isValid: isEmpty(errors)
+    }
+}

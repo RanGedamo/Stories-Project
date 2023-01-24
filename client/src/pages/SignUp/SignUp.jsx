@@ -10,7 +10,7 @@ import {
   MDBIcon
 }
   from 'mdb-react-ui-kit';
-
+  import Cookies from 'js-cookie'
 import axios from 'axios';
  import {useDispatch} from "react-redux"
 import { register } from '../../services/userServices';
@@ -54,12 +54,12 @@ function SignUp() {
   };
 
   const submitUser = async (data) => {
-
     setLoading(false)
     return await disptch(register(data)).then(res =>{
       if(res.payload.message){
         return setErrInput(res.payload.message)
       }
+      Cookies.set('verify',JSON.stringify(data))
       navigate('/otp')
     })
 

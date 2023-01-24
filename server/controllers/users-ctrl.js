@@ -1,8 +1,9 @@
 const userModel = require("../models/users-model");
 const bcrypt = require("bcryptjs");
 const validateRegister = require('../validation/register-validate');
-
-const verifyEmail = Math.floor(Math.random() * 9999)
+const validateLogin = require('../validation/login-validate');
+const {sendEmail} = require('../validation/emailValidation')
+const verifyEmail = `${Math.floor(Math.random() * 9999)}`
 
 
 const getAll = async (req, res) => {
@@ -30,11 +31,19 @@ const getById = async (req, res) => {
 };
 
 const logIn = async (req, res) => {
-  const user = await userModel.findOne({ email }, '-password').populate("groups").populate(["events", "managers", "users"]);
-  const isMatch = await bcrypt.compare(
-    `${req.body.password}`,
-    `${user.password}`
-  );
+  console.log(req.body);
+  const { isValid, errors } = validateLogin(req.body);
+  if (!isValid) return res.status(400).json(errors)
+
+  const user = await userModel.findOne({ email:req.body.email }).populate("groups");
+  console.log(user);
+  if (!user) return res.status(400).json({ message: "email or password not exist" })
+
+  const isMatch = bcrypt.compareSync(
+    req.body.password,
+    user.password
+  ); 
+  if(!isMatch) return res.status(400).json({message: "email or password not exist" }) 
   if (isMatch) {
     const payload = {
       id: user._id,
@@ -53,21 +62,24 @@ const register = async (req, res) => {
   const { isValid, errors } = validateRegister(req.body);
   if (!isValid) return res.status(400).json(errors)
 
-  if (verifyEmail !== req.body.verifyEmail) return res.status(400).json({ message: "Verify is not match" });
- 
   try {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(req.body.password, salt);
     req.body.password = hashedPassword;
 
     await userModel
-      .insertMany(req.body)
-      .then((user) => {
-        const payload = {
-          id: user[0]._id,
-          email: user[0].email,
-        };
-        return res.status(200).json({ success: true, payload })
+    .insertMany(req.body)
+    .then((user) => {
+      const payload = {
+        id: user[0]._id,
+        email: user[0].email,
+      };
+      if (!user) return res.status(400).json({ message: "email is exist" })
+      sendEmail(req.body.email,verifyEmail).then(res=>console.log(res)).catch(error=>console.log(error))
+        console.log(verifyEmail);
+        if (verifyEmail !== req.body.verifyEmail) return res.status(400).json({ verify: "Verify is not match" });
+
+        if (user) return res.status(200).json({ success: true, payload })
       })
       .catch((err) => console.log(err));
   } catch (err) {
