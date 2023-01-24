@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
 import Challenges from "../../components/cards/Challenges";
+import CreateCommunity from "../../components/createCommunity/CreateCommunity";
 
 function Home() {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ function Home() {
     <MDBContainer className="fluid">
       {/* <Sidebar/> */}
       <MDBRow>
-        <MDBCol className="mt-6" >
+        <MDBCol className="mt-6 mb-6">
           <StoriesCarousel />
         </MDBCol>
       </MDBRow>
@@ -42,10 +43,10 @@ function Home() {
       </MDBRow>
       <MDBRow className=" row-cols-3 m-4">
         {groups.allGroups?.map((key, index) => {
-          return <ProfileStatistics key={key} item={key}  />;
+          return <ProfileStatistics key={key} item={key} />;
         })}
       </MDBRow>
-      <MDBRow className="mb-5">
+      <MDBRow className="mb-5 mt-6 mb-8">
         <MDBCol>
           <Challenges />
         </MDBCol>
@@ -59,6 +60,9 @@ function Home() {
           <Challenges />
         </MDBCol>
       </MDBRow>
+      <MDBCol className="d-flex justify-content-center" >
+        <CreateCommunity />
+      </MDBCol>
     </MDBContainer>
   );
 }
