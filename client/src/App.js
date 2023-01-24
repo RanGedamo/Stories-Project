@@ -1,11 +1,5 @@
 import { BrowserRouter } from "react-router-dom";
 import "./App.css";
-
-
-import MyCalendar from "./pages/Calender/Calender";
-import View  from "./pages/stories/View"
-import Challenges from './components/cards/Challenges'
-
 import Routing from "./Routing";
 
 export default function App() {
