@@ -2,16 +2,15 @@ import { MDBBtn } from "mdb-react-ui-kit";
 import Stories from "react-insta-stories";
 import CommentCard from "../comments/Comments";
 
-export default function StoriesData() {
+export default function StoriesData({item}) {
   let stories = [
     {
-      url: "http://res.cloudinary.com/dcapisw77/video/upload/v1674562246/avatar/m2rossozauphewkwcnio.mp4",
+      url: item.file,
       type: "video",
       header: {
-        heading: "Burak Deniz",
+        heading: item.creator.email,
         subheading: "burakdeniz@gmail.com",
-        profileImage:
-          "https://th.bing.com/th?id=ORMS.a94a9012f80a59bd6d4aacc139ee2ec8&pid=Wdp&w=612&h=304&qlt=90&c=1&rs=1&dpr=1.25&p=0",
+        profileImage:item.creator.avatar
       },
       seeMore: true,
       duration: 1000,
@@ -29,26 +28,6 @@ export default function StoriesData() {
     minHeight: "100%",
     margin: "auto",
   };
-  {
-    stories.map((story, index) => {
-      stories.push({
-        url: "images/public-images/video.mp4",
-        type: "video",
-        header: {
-          heading: "Burak Deniz",
-          subheading: "burakdeniz@gmail.com",
-          profileImage:
-            "https://th.bing.com/th?id=ORMS.a94a9012f80a59bd6d4aacc139ee2ec8&pid=Wdp&w=612&h=304&qlt=90&c=1&rs=1&dpr=1.25&p=0",
-        },
-        seeMore: true,
-        duration: 1000,
-        seeMore: ({ close }) => {
-          return <div onClick={close}>Hello, click to close this.</div>;
-        },
-      });
-    });
-  }
-  // console.log(stories);
   return (
     <>
       <Stories

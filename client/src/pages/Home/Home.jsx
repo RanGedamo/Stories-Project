@@ -1,6 +1,5 @@
 import React from "react";
 import StoriesCarousel from "../../components/Carousel/StoriesCarousel";
-import ProfileStatistics from "../../components/cards/ProfileStatistics";
 // import Sidebar from "../../components/sidebar/Sidebar";
 import StoriesData from "../../components/story/StoriesData";
 import { getAll } from "../../services/groupServices";
@@ -9,6 +8,12 @@ import { useEffect } from "react";
 import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
 import Challenges from "../../components/cards/Challenges";
 import CreateCommunity from "../../components/createCommunity/CreateCommunity";
+import ProfileStatistics from "../../components/cards/ProfileStatistics"
+// import Sidebar from "../../components/sidebar/Sidebar";
+import StoriesData from "../../components/story/StoriesData"
+
+import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
+
 
 function Home() {
   const dispatch = useDispatch();
@@ -18,28 +23,18 @@ function Home() {
   const groups = useSelector((state) => state.group);
   return (
     <MDBContainer className="fluid">
-      {/* <Sidebar/> */}
-      <MDBRow>
-        <MDBCol className="mt-6 mb-6">
+        {/* <Sidebar/> */}
+      <MDBRow className="mt-4" >
+        <MDBCol className="mt-2">
           <StoriesCarousel />
         </MDBCol>
       </MDBRow>
-      <MDBRow>
-        <MDBCol size={12} className=" ms-md-2 ms-5 p-0 col-md-2">
-          <StoriesData />
-        </MDBCol>
-        <MDBCol size={12} className=" ms-5 p-0 col-md-2">
-          <StoriesData />
-        </MDBCol>
-        <MDBCol size={12} className=" ms-5 p-0 col-md-2">
-          <StoriesData />
-        </MDBCol>
-        <MDBCol size={12} className=" ms-5 p-0 col-md-2">
-          <StoriesData />
-        </MDBCol>
-        <MDBCol size={12} className=" ms-5 p-0 col-md-2">
-          <StoriesData />
-        </MDBCol>
+      <MDBRow className=" d-flex align-self-center">
+        {/* <MDBCol size={2} className=" ms-2 p-0"><StoriesData/></MDBCol>
+        <MDBCol size={2} className=" ms-5 p-0"><StoriesData/></MDBCol>
+        <MDBCol size={2} className=" ms-5 p-0"><StoriesData/></MDBCol>
+        <MDBCol size={2} className=" ms-5 p-0"><StoriesData/></MDBCol>
+        <MDBCol size={2} className=" ms-5 p-0"><StoriesData/></MDBCol> */}
       </MDBRow>
       <MDBRow className=" row-cols-3 m-4">
         {groups.allGroups?.map((key, index) => {
@@ -63,6 +58,9 @@ function Home() {
       <MDBCol className="d-flex justify-content-center" >
         <CreateCommunity />
       </MDBCol>
+      <MDBRow className="mt-4 d-flex justify-content-around">
+          <ProfileStatistics />
+      </MDBRow>
     </MDBContainer>
   );
 }

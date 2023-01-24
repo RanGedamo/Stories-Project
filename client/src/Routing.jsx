@@ -9,11 +9,10 @@ function Routing() {
   return (
     <div className='main'>
         <Routes>
+            <Route path='community' element={<Community/>}/>
             <Route path='SignIn' element={<SignIn/>}/>
-            <Route path='community' element={<Community/>}/>
-            <Route path='Otp' element={<Otp/>}/>
             <Route path='SignUp' element={<SignUp/>}/>
-            <Route path='community' element={<Community/>}/>
+            <Route path='Otp' element={<Otp/>}/>
             <Route path='/' element={<Home/>}/>
         </Routes>
     </div>
