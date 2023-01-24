@@ -4,7 +4,7 @@ const schema = mongoose.Schema;
 const groupsSchema = schema({
   groupName: { type: String, required: true },
   description: { type: String, required: true },
-  managers:[{ type: schema.Types.ObjectId, ref: "user" }],
+  managers:[{ type: schema.Types.ObjectId, ref: "user", required:true }],
   enteryQuistions: [
     {
       quistion: { type: String, required: true },
