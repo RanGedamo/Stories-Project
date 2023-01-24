@@ -17,17 +17,17 @@ const initialState = {
         }
     },
     extraReducers:{
-        [getAllStories.pending]:(state)=>{
-            state.isLoading=true
-        },
-        [getAllStories.fulfilled]:(state, action)=>{
-            state.isLoading=false
-            state.allstories=action.payload.stories
-        },
-        [getAllStories.rejected]:(state, action)=>{
-            state.isLoading=false
-            state.error=action.payload
-        },
+        // [getAllStories.pending]:(state)=>{
+        //     state.isLoading=true
+        // },
+        // [getAllStories.fulfilled]:(state, action)=>{
+        //     state.isLoading=false
+        //     state.allstories=action.payload.stories
+        // },
+        // [getAllStories.rejected]:(state, action)=>{
+        //     state.isLoading=false
+        //     state.error=action.payload
+        // },
         [create.pending]:(state)=>{
             state.isLoading=true
         },
