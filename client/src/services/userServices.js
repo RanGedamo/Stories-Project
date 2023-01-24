@@ -2,6 +2,15 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 const basicAPI = "http://localhost:6060/users";
 
+const getAllUsers =  createAsyncThunk( "users/getAll",(arg,{rejectWithValue}) => {
+  return fetch(`${basicAPI}`)
+    .then((res) => res.json())
+    .catch((error) => {
+      rejectWithValue(error)
+      console.log(error);
+    });
+});
+
 const update = createAsyncThunk("users/update",(user) => {
   return fetch(`${basicAPI}/byId/${user.id}/update`, {
     method: "PUT",
@@ -67,4 +76,4 @@ const logIn = createAsyncThunk("users/logIn",(user) => {
  
    } );
 
-export { update, deleteObj, getById, logIn, register };
+export { update, deleteObj, getById, logIn, register, getAllUsers };

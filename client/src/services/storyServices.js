@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 const basicAPI = "http://localhost:6060/stories";
-const getAll =  createAsyncThunk( "stories/getAll",(arg,{rejectWithValue}) => {
+const getAllStories =  createAsyncThunk( "stories/getAll",(arg,{rejectWithValue}) => {
   return fetch(`${basicAPI}`)
     .then((res) => res.json())
     .catch((error) => {
@@ -61,4 +61,4 @@ const create = createAsyncThunk("stories/create",async (story) => {
       .then((res) => console.log(res, "success"));
   } );
 
-export { getAll, update, deleteObj, getById, create };
+export { getAllStories, update, deleteObj, getById, create };

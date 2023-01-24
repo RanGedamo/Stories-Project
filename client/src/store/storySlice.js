@@ -17,14 +17,14 @@ const initialState = {
         }
     },
     extraReducers:{
-        [getAll.pending]:(state)=>{
+        [getAllStories.pending]:(state)=>{
             state.isLoading=true
         },
-        [getAll.fulfilled]:(state, action)=>{
+        [getAllStories.fulfilled]:(state, action)=>{
             state.isLoading=false
             state.allstories=action.payload.stories
         },
-        [getAll.rejected]:(state, action)=>{
+        [getAllStories.rejected]:(state, action)=>{
             state.isLoading=false
             state.error=action.payload
         },

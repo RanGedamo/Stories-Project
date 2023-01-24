@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 const basicAPI = "http://localhost:6060/events";
-const getAll =  createAsyncThunk( "events/getAll",(arg,{rejectWithValue}) => {
+const getAllEvents =  createAsyncThunk( "events/getAll",(arg,{rejectWithValue}) => {
   return fetch(`${basicAPI}`)
     .then((res) => res.json())
     .catch((error) => {
@@ -61,4 +61,4 @@ const create = createAsyncThunk("events/create",async (event) => {
       .then((res) => console.log(res, "success"));
   } );
 
-export { getAll, update, deleteObj, getById, create };
+export { getAllEvents, update, deleteObj, getById, create };
