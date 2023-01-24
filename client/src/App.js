@@ -11,7 +11,7 @@ import Routing from "./Routing";
 export default function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      {/* <BrowserRouter> */}
       {/* <NavBar/> */}
         <Routing />
       </BrowserRouter>
