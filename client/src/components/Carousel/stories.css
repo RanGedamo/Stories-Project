@@ -8,6 +8,7 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 8px;
+    border-color: transparent;
 }
 .carousel-status{
     padding: 16px 0px;

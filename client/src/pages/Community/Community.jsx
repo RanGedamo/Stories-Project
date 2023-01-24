@@ -1,25 +1,15 @@
 import { MDBCol, MDBContainer, MDBRow } from "mdb-react-ui-kit";
 import React from "react";
 import ComunnityTabs from "../../components/ComunnityTabs/ComunnityTabs";
+import ProfileCanvas from "../../components/ProfileCanvas/ProfileCanvas";
 
- export default function Community() {
+export default function Community() {
   return (
-    <div className="container-fluid">
-      <MDBRow className="d-flex justify-content-center align-items-end " style={{ backgroundImage:"url(https://petapixel.com/assets/uploads/2022/07/DALLEcopy.jpg)", height: "50vh" }}>
-
-      <MDBCol lg='4' md='6' className=''>
-        <img
-          src='https://mdbootstrap.com/img/new/standard/city/047.webp'
-          className='img-fluid rounded-pill w-50'
-          alt=''
-        />
-      </MDBCol>
-      </MDBRow>
-      <MDBContainer>
-      <ComunnityTabs/>
-
+    <div>
+      <ProfileCanvas/>
+      <MDBContainer className="mt-5">
+        <ComunnityTabs />
       </MDBContainer>
-     
     </div>
   );
 }

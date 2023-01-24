@@ -1,19 +1,20 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import Comunnity from './pages/Comunnity/Comunnity'
+import Community from './pages/Community/Community'
+import Home from './pages/Home/Home'
 import Otp from './pages/OTP/OtpVyrify'
 import SignIn from './pages/SignIn/SignIn'
 import SignUp from './pages/SignUp/SignUp'
-import Community from './pages/Community/Community'
 function Routing() {
   return (
     <div className='main'>
         <Routes>
             <Route path='SignIn' element={<SignIn/>}/>
-            <Route path='community' element={<Comunnity/>}/>
+            <Route path='community' element={<Community/>}/>
             <Route path='Otp' element={<Otp/>}/>
             <Route path='SignUp' element={<SignUp/>}/>
             <Route path='community' element={<Community/>}/>
+            <Route path='/' element={<Home/>}/>
         </Routes>
     </div>
   )
