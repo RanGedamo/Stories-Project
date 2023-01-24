@@ -16,7 +16,6 @@ export default function OsimSchuna() {
         <MDBCardTitle>Daily Challenge</MDBCardTitle>
         <MDBCardImage
           src={gif}
-         
           position="top"
         />
         <MDBCardText>
