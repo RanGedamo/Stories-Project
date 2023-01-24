@@ -2,8 +2,8 @@ import React from "react";
 import { useState ,useRef, useEffect } from "react";
 
 
-import video1 from "../video/video1.mp4"
-import video2 from "../video/video1.mp4"
+import video1 from "./Video1.mp4"
+import video2 from "./video2.mp4"
 
 
 import "./video.css"

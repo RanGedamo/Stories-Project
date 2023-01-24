@@ -6,7 +6,8 @@ import {
   MDBInputGroup,
   MDBIcon
 } from 'mdb-react-ui-kit';
-import {Button} from "../components/Button";
+import Button from '../Button/Button';
+
 
 
 
