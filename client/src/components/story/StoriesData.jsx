@@ -5,7 +5,7 @@ import CommentCard from "../comments/Comments";
 export default function StoriesData() {
   let stories = [
     {
-      url: "images/public-images/video.mp4",
+      url: "http://res.cloudinary.com/dcapisw77/video/upload/v1674562246/avatar/m2rossozauphewkwcnio.mp4",
       type: "video",
       header: {
         heading: "Burak Deniz",
@@ -55,8 +55,8 @@ export default function StoriesData() {
         stories={stories}
         storyStyles={storyContent}
         defaultInterval={1000}
-        width={432}
-        height={768}
+        width={230}
+        height={400}
         loop={true}
         onStoryEnd={(s, st) => console.log("story ended", s, st)}
         onAllStoriesEnd={(s, st) => console.log("all stories ended", s, st)}
