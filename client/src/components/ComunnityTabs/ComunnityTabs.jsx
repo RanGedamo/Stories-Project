@@ -5,13 +5,14 @@ import {
   MDBTabsLink,
   MDBTabsContent,
   MDBTabsPane,
-  MDBCol,MDBRow
+  MDBCol,MDBRow,MDBIcon
 } from 'mdb-react-ui-kit';
 import Challenges from "../../components/challenges/challenges";
 import Events from "../../components/events/Events";
 import MostActive from "../../components/sections/MostActive";
 import MyCalendar from '../../pages/Calender/Calender';
 import Reels from '../story/Reels';
+import About from '../../pages/About/About';
 
 
 export default function ComunnityTabs() {
@@ -30,18 +31,18 @@ export default function ComunnityTabs() {
       <MDBTabs justify className='mb-3'>
         <MDBTabsItem>
           <MDBTabsLink onClick={() => handleJustifyClick('tab1')} active={justifyActive === 'tab1'}>
-            Link
-          </MDBTabsLink>
+          <MDBIcon size="2x" fas icon="igloo" />
+
+                    </MDBTabsLink>
         </MDBTabsItem>
         <MDBTabsItem>
           <MDBTabsLink onClick={() => handleJustifyClick('tab2')} active={justifyActive === 'tab2'}>
-            Very very very very long link
-          </MDBTabsLink>
+          <MDBIcon size="2x" fas icon="calendar-alt" />  
+                </MDBTabsLink>
         </MDBTabsItem>
         <MDBTabsItem>
           <MDBTabsLink onClick={() => handleJustifyClick('tab3')} active={justifyActive === 'tab3'}>
-            Another link
-          </MDBTabsLink>
+          <MDBIcon size='2x' fas icon="question-circle" />          </MDBTabsLink>
         </MDBTabsItem>
       </MDBTabs>
 
@@ -78,7 +79,9 @@ export default function ComunnityTabs() {
         <MDBTabsPane show={justifyActive === 'tab2'}>
             <MyCalendar/>
         </MDBTabsPane>
-        <MDBTabsPane show={justifyActive === 'tab3'}>Tab 3 content</MDBTabsPane>
+        <MDBTabsPane show={justifyActive === 'tab3'}>
+            <About/>
+        </MDBTabsPane>
       </MDBTabsContent>
     </>
   );
