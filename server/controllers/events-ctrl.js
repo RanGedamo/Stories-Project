@@ -1,7 +1,7 @@
 const eventsModel = require("../models/events-model");
 
 const getAll = async (req, res) => {
-    await eventsModel.find({}).populate("groups")
+    await eventsModel.find({}).populate("group")
         .then((events, error) => {
             if (error) {
                 return res.status(400).json({ success: false, error });
@@ -14,7 +14,7 @@ const getAll = async (req, res) => {
 }
 
 const getById = async (req, res) => {
-    await eventsModel.findById(req.params.id).populate("groups")
+    await eventsModel.findById(req.params.id).populate("group")
         .then((event) => {
             if (!event) {
                 return res.json({ success: false, massage: "event is not found" });
