@@ -1,6 +1,9 @@
 const userModel = require("../models/users-model");
 const bcrypt = require("bcryptjs");
-const {registerValidate}  = require('../validation/register-validate');
+const validateRegister = require('../validation/register-validate');
+
+const verifyEmail = Math.floor(Math.random() * 9999)
+
 
 const getAll = async (req, res) => {
   await userModel.find({}).populate("groups").then((users, error) => {
@@ -37,20 +40,21 @@ const logIn = async (req, res) => {
       id: user._id,
       email: user.email,
       avatar: user.avatar,
-      groups:user.groups
+      groups: user.groups
     }
-    res.json({success:true, payload})
+    res.json({ success: true, payload })
   } else {
     return res.status(400).json({ passwordIncorrect: "Password incorrect" });
   }
 };
 
 const register = async (req, res) => {
+  console.log(req.body);
+  const { isValid, errors } = validateRegister(req.body);
+  if (!isValid) return res.status(400).json(errors)
 
-  const { error } = registerValidate(req.body);
-  if (error) {
-    return res.status(400).send({ message: error.details[0].message });
-  }
+  if (verifyEmail !== req.body.verifyEmail) return res.status(400).json({ message: "Verify is not match" });
+ 
   try {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(req.body.password, salt);
@@ -73,7 +77,7 @@ const register = async (req, res) => {
 
 const update = async (req, res) => {
   userModel
-    .findByIdAndUpdate(req.params.id,req.body)
+    .findByIdAndUpdate(req.params.id, req.body)
     .then((user) => res.status(200).json({ sucsess: true, user }))
     .catch((error) => res.status(400).json({ success: false, error }));
 };
