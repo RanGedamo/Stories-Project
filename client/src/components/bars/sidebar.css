@@ -8,4 +8,28 @@
     overflow-y: auto;
     z-index: 999;
   }
+
+  .sidebar {
+    width: 250px;
+  }
   
+  .sidebar_avatar {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  .sidebar_nav{
+    display: block;
+  }
+  
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 15%;
+    }
+    .sidebar_nav{
+        display: none;
+    }
+  }
+
+  .myAvatarImg{
+    width: 100vh;
+  }
