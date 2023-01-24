@@ -5,7 +5,7 @@ import ProfileCanvas from "../../components/ProfileCanvas/ProfileCanvas";
 
 export default function Community() {
   return (
-    <div>
+    <div className="">
       <ProfileCanvas/>
       <MDBContainer className="mt-5">
         <ComunnityTabs />
