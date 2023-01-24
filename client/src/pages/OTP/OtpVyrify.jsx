@@ -11,18 +11,11 @@ import {
 }
 from 'mdb-react-ui-kit';
 import { useState } from 'react';
-import { loginUser } from '../../services/users-service';
 
 function Otp() {
 const [inputs,setInputs] = useState()
-  const changeInputs = (e)=>{
-    setInputs({...inputs,[e.target.name]:e.target.value});
-    console.log(inputs);
-  }
-  const submitUser = async()=>{
-    await loginUser(inputs).then(res=>console.log(res))
-    console.log(inputs);
-  }
+
+
   return (
     <MDBContainer fluid style={{backgroundImage:"url('/images/public-images/sign.jpg')",backgroundSize:"100vh",backgroundSize:"100vw",width:"100"}}>
 
@@ -33,7 +26,7 @@ const [inputs,setInputs] = useState()
           <h2 className="fw-bold mb-2 mt-5 text-uppercase">Send to your email Verify Validation..</h2>
           <div className='d-flex justify-content-center mt-5'>
 
-          <MDBInput wrapperClass='mb-4 mx-5 w-50 d-flex ' style={{color:"white"}} labelClass='text-white' label='Email address' id='formControlLg' type='email' size="lg" name='email' onChange={(e)=>changeInputs(e)}/>
+          <MDBInput wrapperClass='mb-4 mx-5 w-50 d-flex ' style={{color:"white"}} labelClass='text-white' label='Email address' id='formControlLg' type='email' size="lg" name='email' />
           </div>
 
             {/* <MDBCardBody className='p-5 d-flex flex-column align-items-center mx-auto w-100'>

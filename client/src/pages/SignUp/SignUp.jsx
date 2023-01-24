@@ -10,9 +10,10 @@ import {
   MDBIcon
 }
   from 'mdb-react-ui-kit';
-import { register } from '../../services/userServices';
+
 import axios from 'axios';
  import {useDispatch} from "react-redux"
+import { register } from '../../services/userServices';
 
 function SignUp() {
   const [errInput,setErrInput] = useState("")
@@ -49,7 +50,7 @@ function SignUp() {
   const submitUser = async (data) => {
   
     setLoading(false)
-    return await registerUser(data).then(res => console.log(res))
+    return await register(data).then(res => console.log(res))
       .catch(error =>{ 
         if(error.response.data.message)
         setErrInput(error.response.data.message)

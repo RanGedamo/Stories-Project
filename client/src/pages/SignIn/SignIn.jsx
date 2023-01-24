@@ -11,7 +11,7 @@ import {
 }
 from 'mdb-react-ui-kit';
 import { useState } from 'react';
-import { loginUser } from '../../services/users-service';
+import { logIn } from '../../services/userServices';
 
 function SignIn() {
 const [inputs,setInputs] = useState()
@@ -20,7 +20,7 @@ const [inputs,setInputs] = useState()
     console.log(inputs);
   }
   const submitUser = async()=>{
-    await loginUser(inputs).then(res=>console.log(res))
+    await logIn(inputs).then(res=>console.log(res))
     console.log(inputs);
   }
   return (
