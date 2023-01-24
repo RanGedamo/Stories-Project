@@ -39,7 +39,7 @@ function Home() {
         <MDBCol size={2} className=" ms-5 p-0"><StoriesData/></MDBCol>
         <MDBCol size={2} className=" ms-5 p-0"><StoriesData/></MDBCol> */}
       </MDBRow>
-      <MDBRow className=" row-cols-3 m-4">
+      <MDBRow className=" row-cols-3 m-4" style={{minHeight:"75px"}} >
         {groupName == false ? (
           <div>Loading...</div>
         ) : (
