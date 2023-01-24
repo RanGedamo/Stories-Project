@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 const {registerValidate}  = require('../validation/register-validate');
 
 const getAll = async (req, res) => {
-  await userModel.find({}).populate("groups").populate(["events","managers","users", "stories"]).then((users, error) => {
+  await userModel.find({}).populate("groups").then((users, error) => {
     if (error) {
       return res.status(400).json({ success: false, error });
     }
@@ -16,7 +16,7 @@ const getAll = async (req, res) => {
 
 const getById = async (req, res) => {
   await userModel
-    .findById(req.params.id).populate("groups").populate(["events","managers","users", "stories"])
+    .findById(req.params.id).populate("groups")
     .then((user) => {
       if (!user) {
         return res.json({ success: false, massage: "user is not found" });
@@ -27,7 +27,7 @@ const getById = async (req, res) => {
 };
 
 const logIn = async (req, res) => {
-    const user = await userModel.findOne({ email },'-password').populate("groups").populate(["events","managers","users"]);
+    const user = await userModel.findOne({ email },'-password').populate("groups");
   const isMatch = await bcrypt.compare(
     `${req.body.password}`,
     `${user.password}`
