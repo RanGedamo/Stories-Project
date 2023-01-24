@@ -48,7 +48,7 @@ export default function StoriesData() {
       });
     });
   }
-  console.log(stories);
+  // console.log(stories);
   return (
     <>
       <Stories
@@ -58,9 +58,9 @@ export default function StoriesData() {
         width={230}
         height={400}
         loop={true}
-        onStoryEnd={(s, st) => console.log("story ended", s, st)}
-        onAllStoriesEnd={(s, st) => console.log("all stories ended", s, st)}
-        onStoryStart={(s, st) => console.log("story started", s, st)}
+        // onStoryEnd={(s, st) => console.log("story ended", s, st)}
+        // onAllStoriesEnd={(s, st) => console.log("all stories ended", s, st)}
+        // onStoryStart={(s, st) => console.log("story started", s, st)}
         keyboardNavigation
         isPaused={false}
       />
