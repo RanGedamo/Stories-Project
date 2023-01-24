@@ -18,6 +18,13 @@ function Home() {
   const [groupName, setGroupName] = useState(false);
   const API = "http://localhost:6060/groups";
 
+  const pictures = [
+    "https://images.pexels.com/photos/163064/play-stone-network-networked-interactive-163064.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+   "https://images.pexels.com/photos/449609/pexels-photo-449609.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+   "https://images.pexels.com/photos/14629549/pexels-photo-14629549.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+   "https://images.pexels.com/photos/8258043/pexels-photo-8258043.jpeg?auto=compress&cs=tinysrgb&w=600"
+  ];
+
   useEffect(() => {
     try {
       return fetch(API)
@@ -50,25 +57,23 @@ function Home() {
       </MDBRow>
       <MDBRow className="mb-5 mt-6 mb-8">
         <MDBCol>
-          <Challenges />
+          <Challenges item = {pictures[0]}/>
         </MDBCol>
         <MDBCol>
-          <Challenges />
+          <Challenges item = {pictures[1]} />
         </MDBCol>
         <MDBCol>
-          <Challenges />
+          <Challenges   item = {pictures[2]}/>
         </MDBCol>
         <MDBCol>
-          <Challenges />
+          <Challenges  item = {pictures[3]}/>
         </MDBCol>
       </MDBRow>
       <MDBCol className="d-flex justify-content-center">
         <CreateCommunity />
       </MDBCol>
       <MDBRow className="mt-4 d-flex justify-content-around">
-        
         {/* <ProfileStatistics /> */}
-
       </MDBRow>
     </MDBContainer>
   );
