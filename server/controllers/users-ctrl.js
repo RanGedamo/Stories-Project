@@ -78,22 +78,26 @@ const register = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(req.body.password, salt);
     req.body.password = hashedPassword;
+    await userModel.findOne({email:req.body.email}).then(async(userEmail)=>{
+      if (userEmail) return res.status(400).json({ message: "email is exist" })
 
-    await userModel
+      await userModel
     .insertMany(req.body)
     .then((user) => {
       const payload = {
         id: user[0]._id,
         email: user[0].email,
       };
-      if (!user) return res.status(400).json({ message: "email is exist" })
+      // if (!user) return res.status(400).json({ message: "email is exist" })
       sendEmail(req.body.email,verifyEmail).then(res=>console.log(res)).catch(error=>console.log(error))
         console.log(verifyEmail);
         if (verifyEmail !== req.body.verifyEmail) return res.status(400).json({ verify: "Verify is not match" });
 
         if (user) return res.status(200).json({ success: true, payload })
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+    })
+    ;
   } catch (err) {
     return console.log({ success: false, err });
   }
