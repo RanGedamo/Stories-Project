@@ -9,10 +9,10 @@ import {
 } from 'mdb-react-ui-kit';
 import Button from '../Button/Button';
 import Cookies from 'js-cookie';
-
 import { useState } from "react";
 import Home from "../../pages/Home/Home";
-import { Link } from "react";
+import CommunitiesDropDown from "./CommunitiesDropDown";
+
 
 export default function NavBar() {
   const [press, setPress] = useState(false);
@@ -29,6 +29,7 @@ export default function NavBar() {
           {" "}
           Navbar{" "}
         </MDBNavbarBrand>
+        <CommunitiesDropDown/>
         <MDBInputGroup tag="form" className="d-flex w-auto mb-2 m-2">
           <input
             className="form-control d-flex justify-content-center"

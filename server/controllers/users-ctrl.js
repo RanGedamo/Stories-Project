@@ -30,6 +30,18 @@ const getById = async (req, res) => {
     .catch((error) => res.status(400).json({ success: false, error }));
 };
 
+const getByEmail = async (req, res) => {
+  await userModel
+    .findOne(req.params.email).populate("groups")
+    .then((user) => {
+      if (!user) {
+        return res.json({ success: false, massage: "user is not found" });
+      }
+      return res.status(200).json({ success: true, user });
+    })
+    .catch((error) => res.status(400).json({ success: false, error }));
+};
+
 const logIn = async (req, res) => {
   console.log(req.body);
   const { isValid, errors } = validateLogin(req.body);
@@ -107,4 +119,5 @@ module.exports = {
   deleteUser,
   register,
   logIn,
+  getByEmail
 };
