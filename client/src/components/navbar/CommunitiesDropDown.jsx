@@ -36,7 +36,7 @@ export default function CommunitiesDropDown() {
     // },[])
     useEffect(()=>{
         try{
-        fetch(`http://localhost:6060/groups`)
+        fetch(`http://storyserver-env.eba-znagmmma.us-east-1.elasticbeanstalk.com/groups`)
         .then((res) => res.json())
         .then((res)=>setGroups(res?.groups)) }
         catch(error){console.log(error)}

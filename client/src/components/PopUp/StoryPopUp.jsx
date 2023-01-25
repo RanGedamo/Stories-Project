@@ -4,7 +4,6 @@ import StoriesData from "../story/StoriesData";
 
 export default function AStoryPopUppp({ item }) {
   const [basicModal, setBasicModal] = useState(true);
-
   return (
     <div >
       <MDBModal

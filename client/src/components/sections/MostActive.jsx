@@ -6,7 +6,7 @@ import { useSelector, useDispatch  } from "react-redux";
 import { getAllUsers} from "../../services/userServices";
 
 const fetchingUsers= async ()=>{
-  return await fetch("http://localhost:6060/users")
+  return await fetch("http://storyserver-env.eba-znagmmma.us-east-1.elasticbeanstalk.com/users")
   .then((res) => res.json())  
 }
 
@@ -14,7 +14,7 @@ export default function MostActive() {
   const [users,setUsers]=useState()
   useEffect(()=>{
   try{
-  fetch("http://localhost:6060/users")
+  fetch("http://storyserver-env.eba-znagmmma.us-east-1.elasticbeanstalk.com/users")
   .then((res) => res.json())
   .then((res)=>setUsers(res.users)) }
   catch(error){}

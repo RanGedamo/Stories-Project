@@ -46,7 +46,7 @@ export default function StoriesCarousel() {
 
   const getStories = async () => {
     try {
-    return await  fetch("http://localhost:6060/stories/")
+    return await  fetch("http://storyserver-env.eba-znagmmma.us-east-1.elasticbeanstalk.com/stories/")
      .then((res)=>res.json()).then(({stories })=>{
       console.log(stories);
        setStory(stories)
@@ -67,7 +67,8 @@ export default function StoriesCarousel() {
   useEffect(() => {
     getStories()
   },[])
-console.log(story);
+// console.log(story);
+
   return (
     <section className="check">
       <div className="left-icon" onClick={() => handleSlide("left")}>

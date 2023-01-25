@@ -1,28 +1,21 @@
 import { MDBBtn } from "mdb-react-ui-kit";
-import { useEffect } from "react";
 import Stories from "react-insta-stories";
-import { storiesAPI } from "../../services/storys";
-// import CommentCard from "../comments/Comments";
+import CommentCard from "../comments/Comments";
 
 export default function StoriesData({item}) {
-  const story = [
+  
+  const stories = [
     {
       url: item.file,
       type: 'video',
       header: item?.creator?.userName,
       seeMore: true,
       duration: 1500,
-      seeMore: ({ close }) => {
-        return <div onClick={close}>Hello, click to close this.</div>;
-      },
     },
     {
       url: item.file,
       type: 'video',
       header: item?.creator?.userName,
-      seeMore: ({ close }) => {
-        return <div onClick={close}>Hello, click to close this.</div>;
-      },
     },
     {    
       url: item.file,
@@ -50,10 +43,11 @@ export default function StoriesData({item}) {
     minHeight: "100%",
     margin: "auto",
   };
+  
   return (
     <>
       <Stories
-        stories={story}
+        stories={stories}
         storyStyles={storyContent}
         defaultInterval={1000}
         width={230}
