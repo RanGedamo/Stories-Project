@@ -67,8 +67,6 @@ function Home() {
       </MDBCol>
       <MDBRow className="mt-4 d-flex justify-content-around">
         
-        {/* <ProfileStatistics /> */}
-
       </MDBRow>
     </MDBContainer>
   );
