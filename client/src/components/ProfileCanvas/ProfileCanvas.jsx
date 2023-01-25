@@ -25,10 +25,10 @@ let x= data.avatar
         <MDBRow className="justify-content-center align-items-center h-100">
           <MDBCol  className='d-flex justify-content-center'>
             <>
-              <div className="rounded-top text-white d-flex flex-row " style={{height: '200px' }}>
+              <div className="rounded-top text-white d-flex flex-row mt-5 pt-5" style={{height: '200px' }}>
 
                 <div className="ms-4 mt-5 pt-5 d-flex flex-column " style={{ width: '150px' }}>
-                  <section className="avatar-detail">
+                  <section className="avatar-detail mt-5 pt-1">
         <div className="avatar-box">
           <div
             onClick={handleToggle}
@@ -42,12 +42,12 @@ let x= data.avatar
             {toggle && story ? <StoryPopUp item={story} /> : ""}
           </div>
         </div>
-        <p className="avatar-name">{data.groupName}</p>
+        <h1 className="avatar-name">{data.groupName}</h1>
       </section>
               <MDBIcon size='2x' className='btn w-25 d-flex justify-content-center ' style={{color:"red",position:"relative",top:"-100px",left:"-17px" ,zIndex:"8"}}  fas icon="plus" />
 
                 </div>
-                <div className="ms-3" style={{ marginTop: '130px' }}>
+                <div className="ms-3 mt-5" style={{ marginTop: '130px' }}>
                 </div>
               </div>
             </>
