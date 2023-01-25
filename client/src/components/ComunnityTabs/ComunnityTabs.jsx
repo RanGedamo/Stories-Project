@@ -13,6 +13,7 @@ import MyCalendar from '../../pages/Calender/Calender';
 import Reels from '../story/Reels';
 import About from '../../pages/About/About';
 import GoogleMapLocation from '../map/GoogleMap';
+import MostActive from '../sections/MostActive';
 
 
 export default function ComunnityTabs() {
@@ -54,7 +55,7 @@ export default function ComunnityTabs() {
           md={4}
           
         >
-          <MDBCol md={12} className="mb-2 " style={{ height: "70%" }} >
+          <MDBCol md={12} className="mb-2 ">
           <Reels/>
 
           </MDBCol>
@@ -71,7 +72,7 @@ export default function ComunnityTabs() {
     </MDBCol>
           <MDBCol md={12} className="mb-2" style={{ background: "white"}}>
           <GoogleMapLocation />
-
+          <MostActive/>
           </MDBCol>
         </MDBCol>
         </MDBRow>
