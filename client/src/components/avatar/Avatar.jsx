@@ -7,7 +7,7 @@ export default function Avatar({ image }) {
     <img
       src={image}
       className="rounded-circle"
-      style={{ width: "50px", height: "50px" }}
+      style={{ width: "66px", height: "65px" }}
       alt="Avatar"
     />
   </div>
