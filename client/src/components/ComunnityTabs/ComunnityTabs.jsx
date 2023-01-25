@@ -66,6 +66,7 @@ export default function ComunnityTabs() {
         </MDBCol>
         <MDBCol md={8} >
         <MDBCol md={12} className="mb-2" >
+          {/* <MostActive/> */}
             <Events/>
           </MDBCol>
           <MDBCol md={12} className="mb-2 ">
@@ -73,7 +74,7 @@ export default function ComunnityTabs() {
     </MDBCol>
           <MDBCol md={12} className="mb-2" style={{ background: "white"}}>
           <GoogleMapLocation />
-          <MostActive/>
+
           </MDBCol>
         </MDBCol>
         </MDBRow>

@@ -13,7 +13,7 @@ function Routing() {
         <Routes>
             <Route path='SignIn' element={<SignIn/>}/>
             <Route path='SignUp' element={<SignUp/>}/>
-            <Route path='community' element={user?<Community/>:<SignIn/>}/>
+            <Route path='community/:id' element={user?<Community/>:<SignIn/>}/>
             <Route path='Otp' element={<Otp/>}/>
             <Route path='/' element={user?<Home/>:<SignIn/>}/>
         </Routes>

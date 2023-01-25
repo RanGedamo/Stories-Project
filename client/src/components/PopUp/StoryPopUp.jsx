@@ -4,6 +4,7 @@ import StoriesData from "../story/StoriesData";
 
 export default function AStoryPopUppp({ item }) {
   const [basicModal, setBasicModal] = useState(true);
+
   return (
     <div >
       <MDBModal
@@ -13,7 +14,6 @@ export default function AStoryPopUppp({ item }) {
         tabIndex="-1"
       >
         <StoriesData item={item} />
-        {console.log(item)}
       </MDBModal>
     </div>
   );

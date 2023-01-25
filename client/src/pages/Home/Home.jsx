@@ -26,28 +26,7 @@ function Home() {
   const [story, setStory] = useState([]);
   const [isGroupsLoading, setGroupsLoading] = useState(true);
   const [isStoriesLoading, setStoriesLoading] = useState(true);
-  const vidStories = [
-    {
-      url: "https://video-iad3-1.cdninstagram.com/o1/v/t16/f1/m82/8147A6AFD7F3D4C116F2DD98BA89ADB0_video_dashinit.mp4?efg=eyJ2ZW5jb2RlX3RhZyI6InZ0c192b2RfdXJsZ2VuLjcyMC5jbGlwcyJ9&_nc_ht=video-iad3-1.cdninstagram.com&_nc_cat=101&vs=511363850832550_1611900519&_nc_vs=HBksFQIYT2lnX3hwdl9yZWVsc19wZXJtYW5lbnRfcHJvZC84MTQ3QTZBRkQ3RjNENEMxMTZGMkREOThCQTg5QURCMF92aWRlb19kYXNoaW5pdC5tcDQVAALIAQAVABgkR0duZFRCUGRJVmQxc3B3QkFLWXVLZE5rM1ZWdWJxX0VBQUFGFQICyAEAKAAYABsBiAd1c2Vfb2lsATEVAAAm9viH1ci400AVAigCQzMsF0Ak7peNT987GBJkYXNoX2Jhc2VsaW5lXzFfdjERAHUAAA%3D%3D&ccb=9-4&oh=00_AfB5scw7urpErGXsgA7IaBYsiA5cv46WTFMSl0gz08J0qQ&oe=63D1F822&_nc_sid=ea0b6e&_nc_rid=66876e80c5",
-      type: "video",
-      header: {
-        heading: "item.creator.email",
-        subheading: "burakdeniz@gmail.com",
-        profileImage: "item.creator.avatar",
-      },
-      seeMore: true,
-      duration: 1000,
-      seeMore: ({ close }) => {
-        return (
-          <div>
-            <MDBBtn onClick={close} className="mb-5 pb-4">
-              Close
-            </MDBBtn>
-          </div>
-        );
-      },
-    },
-  ];
+
   const pictures = [
     "https://images.pexels.com/photos/163064/play-stone-network-networked-interactive-163064.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     "https://images.pexels.com/photos/449609/pexels-photo-449609.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -57,7 +36,7 @@ function Home() {
 
   const getStories = async () => {
     try {
-      return await fetch("http://localhost:6060/stories")
+      return await fetch("http://storyserver-env.eba-znagmmma.us-east-1.elasticbeanstalk.com/stories")
         .then((response) => response.json())
         .then(({ stories }) => setStory(stories));
     } catch (error) {
@@ -66,10 +45,9 @@ function Home() {
       setStoriesLoading(false);
     }
   };
-  let counter = 0;
   const getGroups = async () => {
     try {
-      return await fetch("http://localhost:6060/groups")
+      return await fetch("http://storyserver-env.eba-znagmmma.us-east-1.elasticbeanstalk.com/groups")
         .then((response) => response.json())
         .then(({ groups }) => setGroupName(groups));
     } catch (error) {
@@ -99,12 +77,25 @@ function Home() {
 
   return (
     <MDBContainer className="fluid">
-      <MDBRow className="mt-4 ps-5">
-        <MDBCol size={3}><StoriesData /></MDBCol>
-        <MDBCol size={3}><StoriesData /></MDBCol>
-        <MDBCol size={3}><StoriesData /></MDBCol>
-        <MDBCol size={3}><StoriesData /></MDBCol>
-      </MDBRow>
+      <StoriesCarousel />
+      {isStoriesLoading ? (
+        <div>Loading...</div>
+      ) : (
+        <MDBRow className="mt-4 ps-5">
+          <MDBCol size={3}>
+            <StoriesData item={story} />
+          </MDBCol>
+          <MDBCol size={3}>
+            <StoriesData item={story} />
+          </MDBCol>
+          <MDBCol size={3}>
+            <StoriesData item={story} />
+          </MDBCol>
+          <MDBCol size={3}>
+            <StoriesData item={story} />
+          </MDBCol>
+        </MDBRow>
+      )}
 
       <MDBRow className=" row-cols-3 m-4" style={{ minHeight: "75px" }}>
         {isGroupsLoading ? <div>Loading...</div> : groupName.map(renderGroup)}

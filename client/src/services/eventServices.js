@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-const basicAPI = "http://localhost:6060/events";
+const basicAPI = "http://storyserver-env.eba-znagmmma.us-east-1.elasticbeanstalk.com/events";
 const getAllEvents =  async() => {
   return await fetch(`${basicAPI}`)
     .then((res) => res.json())

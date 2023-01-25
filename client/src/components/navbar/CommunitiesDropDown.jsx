@@ -18,7 +18,7 @@
 // }
 
 import React from 'react';
-import {useEffect,useState, navigate} from 'react';
+import {useEffect,useState} from 'react';
 import { MDBDropdown, MDBDropdownMenu, MDBDropdownToggle, MDBDropdownItem } from 'mdb-react-ui-kit';
 import Cookies from 'js-cookie';
 
@@ -36,7 +36,7 @@ export default function CommunitiesDropDown() {
     // },[])
     useEffect(()=>{
         try{
-        fetch(`http://localhost:6060/groups`)
+        fetch(`http://storyserver-env.eba-znagmmma.us-east-1.elasticbeanstalk.com/groups`)
         .then((res) => res.json())
         .then((res)=>setGroups(res?.groups)) }
         catch(error){console.log(error)}
@@ -47,7 +47,7 @@ export default function CommunitiesDropDown() {
 <MDBDropdown group className='shadow-0'>
 <MDBDropdownToggle color='light'>communities</MDBDropdownToggle>
 <MDBDropdownMenu>
-  {groups?.map((group)=>{return(<MDBDropdownItem className="stretched-link" link>{group?.groupName}</MDBDropdownItem>)})}
+  {groups?.map((group)=>{return(<MDBDropdownItem className=""  ><a href={`/community/${group._id}`} >{group.groupName}</a></MDBDropdownItem>)})}
 </MDBDropdownMenu>
 </MDBDropdown>
 </>

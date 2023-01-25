@@ -3,23 +3,38 @@ import Stories from "react-insta-stories";
 import CommentCard from "../comments/Comments";
 
 export default function StoriesData({item}) {
-  let stories = [
+  
+  const stories = [
     {
-      url:" item.file",
-      type: "video",
-      header: {
-        heading: "item.creator.email",
-        subheading: "burakdeniz@gmail.com",
-        profileImage:"item.creator.avatar"
-      },
+      url: item.file,
+      type: 'video',
+      header: item?.creator?.userName,
       seeMore: true,
-      duration: 1000,
-      seeMore: ({ close }) => {
-        return <div ><CommentCard/>
-        <MDBBtn onClick={close} className="mb-5 pb-4">Close</MDBBtn></div>;
-      },
+      duration: 1500,
     },
-  ];
+    {
+      url: item.file,
+      type: 'video',
+      header: item?.creator?.userName,
+    },
+    {    
+      url: item.file,
+      type: 'video',
+      header: item?.creator?.userName
+    },
+    {
+      url: item.file,
+      type: 'video',
+      header: item?.creator?.userName,
+    },
+    {
+      url: item.file,
+      type: 'video',
+      header: item?.creator?.userName,
+    }
+  ]
+
+
   const storyContent = {
     width: "auto",
     maxWidth: "100%",
@@ -28,6 +43,7 @@ export default function StoriesData({item}) {
     minHeight: "100%",
     margin: "auto",
   };
+  
   return (
     <>
       <Stories
