@@ -13,7 +13,6 @@ export default function AStoryPopUppp({ item }) {
         tabIndex="-1"
       >
         <StoriesData item={item} />
-        {console.log(item)}
       </MDBModal>
     </div>
   );

@@ -4,31 +4,44 @@ import Stories from "react-insta-stories";
 import { storiesAPI } from "../../services/storys";
 // import CommentCard from "../comments/Comments";
 
-export default function StoriesData() {
-  useEffect(() => {
-    return () => {
-      storiesAPI().then(res=>console.log(res))
-    };
-  }, [])
+export default function StoriesData({item}) {
+  const story = [
+    {
+      url: item.file,
+      type: 'video',
+      header: item?.creator?.userName,
+      seeMore: true,
+      duration: 1500,
+      seeMore: ({ close }) => {
+        return <div onClick={close}>Hello, click to close this.</div>;
+      },
+    },
+    {
+      url: item.file,
+      type: 'video',
+      header: item?.creator?.userName,
+      seeMore: ({ close }) => {
+        return <div onClick={close}>Hello, click to close this.</div>;
+      },
+    },
+    {    
+      url: item.file,
+      type: 'video',
+      header: item?.creator?.userName
+    },
+    {
+      url: item.file,
+      type: 'video',
+      header: item?.creator?.userName,
+    },
+    {
+      url: item.file,
+      type: 'video',
+      header: item?.creator?.userName,
+    }
+  ]
 
 
-  // let stories = [
-  //   {
-  //     url: item.url,
-  //     type: "video",
-  //     header: {
-  //       heading: item.creator.email,
-  //       subheading: "burakdeniz@gmail.com",
-  //       profileImage:item.creator.avatar
-  //     },
-  //     seeMore: true,
-  //     duration: 1000,
-  //     seeMore: ({ close }) => {
-  //       return <div ><CommentCard/>
-  //       <MDBBtn onClick={close} className="mb-5 pb-4">Close</MDBBtn></div>;
-  //     },
-  //   },
-  // ];
   const storyContent = {
     width: "auto",
     maxWidth: "100%",
@@ -40,7 +53,7 @@ export default function StoriesData() {
   return (
     <>
       <Stories
-        stories={Stories}
+        stories={story}
         storyStyles={storyContent}
         defaultInterval={1000}
         width={230}
