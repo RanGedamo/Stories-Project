@@ -13,7 +13,6 @@ import {
 } from "mdb-react-ui-kit";
 
 export default function ProfileStatistics({ item }) {
-  console.log(item);
   return (
     <MDBCol md="12" xl="4" className="mb-3 mt-3">
       <MDBCard style={{ borderRadius: "15px" }}>
