@@ -10,10 +10,11 @@ import {
 import Challenges from "../../components/challenges/challenges";
 import Events from "../../components/events/Events";
 import MyCalendar from '../../pages/Calender/Calender';
-import Reels from '../story/Reels';
+
 import About from '../../pages/About/About';
 import GoogleMapLocation from '../map/GoogleMap';
 import MostActive from '../sections/MostActive';
+import Reels from '../story/Reels';
 
 
 export default function ComunnityTabs() {
