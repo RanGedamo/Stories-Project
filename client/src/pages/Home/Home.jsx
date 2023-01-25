@@ -37,7 +37,7 @@ function Home() {
     <MDBContainer className="fluid">
       {/* <Sidebar/> */}
       <MDBRow className="mt-4">
-        <MDBCol className="mt-2">{/* <StoriesCarousel /> */}</MDBCol>
+        <MDBCol className="mt-2"><StoriesCarousel /></MDBCol>
       </MDBRow>
       <MDBRow className=" d-flex align-self-center">
         {/* <MDBCol size={2} className=" ms-2 p-0"><StoriesData/></MDBCol>
@@ -46,7 +46,7 @@ function Home() {
         <MDBCol size={2} className=" ms-5 p-0"><StoriesData/></MDBCol>
         <MDBCol size={2} className=" ms-5 p-0"><StoriesData/></MDBCol> */}
       </MDBRow>
-      <MDBRow className=" row-cols-3 m-4">
+      <MDBRow className=" row-cols-3 m-4" style={{minHeight:"75px"}} >
         {groupName == false ? (
           <div>Loading...</div>
         ) : (
@@ -73,7 +73,6 @@ function Home() {
         <CreateCommunity />
       </MDBCol>
       <MDBRow className="mt-4 d-flex justify-content-around">
-        {/* <ProfileStatistics /> */}
       </MDBRow>
     </MDBContainer>
   );

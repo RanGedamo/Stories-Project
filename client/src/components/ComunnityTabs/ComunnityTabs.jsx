@@ -9,10 +9,12 @@ import {
 } from 'mdb-react-ui-kit';
 import Challenges from "../../components/challenges/challenges";
 import Events from "../../components/events/Events";
-import MostActive from "../../components/sections/MostActive";
 import MyCalendar from '../../pages/Calender/Calender';
-import Reels from '../story/Reels';
+
 import About from '../../pages/About/About';
+import GoogleMapLocation from '../map/GoogleMap';
+import MostActive from '../sections/MostActive';
+import Reels from '../story/Reels';
 
 
 export default function ComunnityTabs() {
@@ -54,7 +56,7 @@ export default function ComunnityTabs() {
           md={4}
           
         >
-          <MDBCol md={12} className="mb-2 " style={{ height: "70%" }} >
+          <MDBCol md={12} className="mb-2 ">
           <Reels/>
 
           </MDBCol>
@@ -67,11 +69,12 @@ export default function ComunnityTabs() {
             <Events/>
           </MDBCol>
           <MDBCol md={12} className="mb-2 ">
-<iframe className='podcast'  src="https://open.spotify.com/embed/album/6UhLHlFHzSMWwo50SpUbaL?utm_source=generator" width="100%" height="250" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>          </MDBCol>
+<iframe className='podcast '  src="https://open.spotify.com/embed/album/6UhLHlFHzSMWwo50SpUbaL?utm_source=generator" width="100%" height="250" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>      
+    </MDBCol>
           <MDBCol md={12} className="mb-2" style={{ background: "white"}}>
-         <MostActive/>
+          <GoogleMapLocation />
+          <MostActive/>
           </MDBCol>
-          
         </MDBCol>
         </MDBRow>
 

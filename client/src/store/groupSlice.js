@@ -10,7 +10,7 @@ const initialState = {
 };
   
   export const groupsSlice = createSlice({
-    name: "groups",
+    name: "groups", 
     initialState,
     reducers: {
         pickingChosenGroups:(state,action)=>{

@@ -14,6 +14,7 @@ import { useState } from 'react';
 import { logIn } from '../../services/userServices';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import Cookies from 'js-cookie';
 
 function SignIn() {
   const navigate= useNavigate()
@@ -35,6 +36,8 @@ const [inputs,setInputs] = useState()
         return setErrorValidate(res.message)
       }
       setErrorValidate("success")
+
+      Cookies.set("user",inputs.email)
       setTimeout(() => {
         return navigate('/')
       }, 3000);

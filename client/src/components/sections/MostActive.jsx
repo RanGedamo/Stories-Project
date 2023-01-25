@@ -29,8 +29,12 @@ export default function MostActive() {
           if (index < 4) {
             return (
               <div className="p-2 ">
-                <Avatar image={`${user.avatar}`} />
+                <Avatar image={user.avatar} />
+                <p>{user.userName}</p>
                 <ul class="list-unstyled d-flex justify-content-center text-warning mb-2">
+                  <li>
+                    <i class="fas fa-star fa-sm"></i>
+                  </li>
                   <li>
                     <i class="fas fa-star fa-sm"></i>
                   </li>
