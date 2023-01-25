@@ -1,25 +1,34 @@
 import { MDBBtn } from "mdb-react-ui-kit";
+import { useEffect } from "react";
 import Stories from "react-insta-stories";
-import CommentCard from "../comments/Comments";
+import { storiesAPI } from "../../services/storys";
+// import CommentCard from "../comments/Comments";
 
-export default function StoriesData({item}) {
-  let stories = [
-    {
-      url: item.file,
-      type: "video",
-      header: {
-        heading: item.creator.email,
-        subheading: "burakdeniz@gmail.com",
-        profileImage:item.creator.avatar
-      },
-      seeMore: true,
-      duration: 1000,
-      seeMore: ({ close }) => {
-        return <div ><CommentCard/>
-        <MDBBtn onClick={close} className="mb-5 pb-4">Close</MDBBtn></div>;
-      },
-    },
-  ];
+export default function StoriesData() {
+  useEffect(() => {
+    return () => {
+      storiesAPI().then(res=>console.log(res))
+    };
+  }, [])
+
+
+  // let stories = [
+  //   {
+  //     url: item.url,
+  //     type: "video",
+  //     header: {
+  //       heading: item.creator.email,
+  //       subheading: "burakdeniz@gmail.com",
+  //       profileImage:item.creator.avatar
+  //     },
+  //     seeMore: true,
+  //     duration: 1000,
+  //     seeMore: ({ close }) => {
+  //       return <div ><CommentCard/>
+  //       <MDBBtn onClick={close} className="mb-5 pb-4">Close</MDBBtn></div>;
+  //     },
+  //   },
+  // ];
   const storyContent = {
     width: "auto",
     maxWidth: "100%",
@@ -31,7 +40,7 @@ export default function StoriesData({item}) {
   return (
     <>
       <Stories
-        stories={stories}
+        stories={Stories}
         storyStyles={storyContent}
         defaultInterval={1000}
         width={230}
