@@ -1,7 +1,8 @@
 import React from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBRipple } from "mdb-react-ui-kit";
 
-export default function Challenges() {
+export default function Challenges({item}) {
+  console.log(item);
   return (
     <MDBCol>
       <MDBRipple
@@ -10,7 +11,7 @@ export default function Challenges() {
         className="bg-image rounded hover-zoom shadow-1-strong"
       >
         <img
-          src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/new/img(1).webp"
+          src={item}
           className="w-100"
         />
         <a href="#!">
