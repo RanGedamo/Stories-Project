@@ -18,7 +18,7 @@
 // }
 
 import React from 'react';
-import {useEffect,useState, navigate} from 'react';
+import {useEffect,useState} from 'react';
 import { MDBDropdown, MDBDropdownMenu, MDBDropdownToggle, MDBDropdownItem } from 'mdb-react-ui-kit';
 import Cookies from 'js-cookie';
 
@@ -47,7 +47,7 @@ export default function CommunitiesDropDown() {
 <MDBDropdown group className='shadow-0'>
 <MDBDropdownToggle color='light'>communities</MDBDropdownToggle>
 <MDBDropdownMenu>
-  {groups?.map((group)=>{return(<MDBDropdownItem className="stretched-link" link>{group?.groupName}</MDBDropdownItem>)})}
+  {groups?.map((group)=>{return(<MDBDropdownItem className=""  ><a href={`/community/${group._id}`} >{group.groupName}</a></MDBDropdownItem>)})}
 </MDBDropdownMenu>
 </MDBDropdown>
 </>

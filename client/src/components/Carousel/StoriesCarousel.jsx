@@ -46,9 +46,9 @@ export default function StoriesCarousel() {
 
   const getStories = async () => {
     try {
-      fetch("http://localhost:6060/stories/")
+    return await  fetch("http://localhost:6060/stories/")
      .then((res)=>res.json()).then(({stories })=>{
-      console.log({stories});
+      console.log(stories);
        setStory(stories)
      })
    } catch (error) {
@@ -67,7 +67,7 @@ export default function StoriesCarousel() {
   useEffect(() => {
     getStories()
   },[])
-
+console.log(story);
   return (
     <section className="check">
       <div className="left-icon" onClick={() => handleSlide("left")}>
