@@ -18,7 +18,7 @@
 // }
 
 import React from 'react';
-import {useEffect,useState, Link} from 'react';
+import {useEffect,useState} from 'react';
 import { MDBDropdown, MDBDropdownMenu, MDBDropdownToggle, MDBDropdownItem } from 'mdb-react-ui-kit';
 import Cookies from 'js-cookie';
 
@@ -38,10 +38,10 @@ export default function CommunitiesDropDown() {
         try{
         fetch(`http://localhost:6060/groups`)
         .then((res) => res.json())
-        .then((res)=>setGroups(res.groups)) }
+        .then((res)=>setGroups(res?.groups)) }
         catch(error){console.log(error)}
         },[])
-        // if(groups){
+        if(groups){
   return (
     <>
 <MDBDropdown group className='shadow-0'>
@@ -52,6 +52,6 @@ export default function CommunitiesDropDown() {
 </MDBDropdown>
 </>
 );
-// }
-// else{return}
+}
+else{return}
 }

@@ -1,14 +1,13 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 const basicAPI = "http://localhost:6060/stories";
-const getAllStories =  createAsyncThunk( "stories/getAll",(arg,{rejectWithValue}) => {
-  return fetch(`${basicAPI}`)
+const getAllStories =  async() => {
+  return await fetch(`${basicAPI}`)
     .then((res) => res.json())
     .catch((error) => {
-      rejectWithValue(error)
       console.log(error);
     });
-});
+};
 
 const update = createAsyncThunk("stories/update",async (story) => {
   const data=story.data

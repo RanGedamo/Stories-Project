@@ -12,12 +12,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 app.use(cors());
 app.use(helmet());
-
+ 
 const userRouter=require("./router/user-router")
 const groupRouter=require("./router/group-router")
 const eventRouter=require("./router/event-router")
 const storyRouter=require("./router/story-router")
-
+ 
 app.use("/users",userRouter)
 app.use("/groups",groupRouter)
 app.use("/events",eventRouter)

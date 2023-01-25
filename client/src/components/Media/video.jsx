@@ -2,8 +2,8 @@ import React from "react";
 import { useState ,useRef, useEffect } from "react";
 
 
-import video1 from "./Video1.mp4"
-import video2 from "./video2.mp4"
+import video1 from "./travels.mp4"
+import video2 from "./volunteer.mp4"
 
 
 import "./video.css"
@@ -37,6 +37,7 @@ export default function Video(){
         <div className="video-cards">
          
             <video onClick={onVideoClick} className="video-player" ref={vidRef} src={video1} loop autoPlay={true}/>
+            <video onClick={onVideoClick} className="video-player" ref={vidRef} src={video2} loop autoPlay={true}/>
         </div>
     )
 }
