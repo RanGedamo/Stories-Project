@@ -13,7 +13,7 @@ import GoogleMapLocation from '../map/GoogleMap';
 import { getAllEvents } from '../../services/eventServices';
 
 
-export default function PopUpCalender() {
+export default function PopUpCalender({num}) {
   const [basicModal, setBasicModal] = useState(true);
 
   const [events, setEvents] = useState();
@@ -23,9 +23,9 @@ export default function PopUpCalender() {
     getAllEvents().then(res=>setEvents(res.events))
   },[])
 
-  events?.map((event,i)=>{
-    console.log(events[i].location);
-  })
+  // events?.map((event,i)=>{
+  //   console.log(events[i].location,"sdsdsdsds");
+  // })
 
   const toggleShow = () => setBasicModal(!basicModal);
 
@@ -35,11 +35,11 @@ export default function PopUpCalender() {
         <MDBModalDialog>
           <MDBModalContent>
             <MDBModalHeader>
-              <MDBModalTitle>Event one </MDBModalTitle>
+              <MDBModalTitle>{events?events[num].eventName:""}</MDBModalTitle>
               <MDBBtn className='btn-close' color='none' onClick={toggleShow}></MDBBtn>
             </MDBModalHeader>
             <MDBModalBody>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum odit accusamus excepturi nemo animi. Distinctio commodi id voluptate voluptates, tempora itaque dolore ab, illum, debitis totam nesciunt. Quos, ratione repudiandae!</p>
+              <p>{events?events[num].description:""}</p>
 
               <div>
 

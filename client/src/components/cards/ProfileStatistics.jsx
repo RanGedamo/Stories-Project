@@ -29,7 +29,7 @@ export default function ProfileStatistics({ item }) {
           <MDBTypography style={{ minHeight: "2rem" }} tag="p">
             {item.description}
           </MDBTypography>
-          <MDBBtn size="lg">Join to our Community</MDBBtn>
+          <MDBBtn size="lg" href={`/community/${item._id}`}>Join to our Community</MDBBtn>
         </MDBCardBody>
       </MDBCard>
     </MDBCol>

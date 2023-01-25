@@ -3,8 +3,10 @@ import "./Calender.css";
 import { useEffect, useState } from "react";
 import PopUpCalender from "../../components/PopUp/PopupCalender";
 import { getAllEvents } from "../../services/eventServices";
+
 const MyCalendar = () => {
   const [toggle, setToggle] = useState(false);
+  const [event, setEvent] = useState(0);
 
 
   const today=new Date()
@@ -12,12 +14,13 @@ const MyCalendar = () => {
   
   console.log(today);
 
-  const changeToggle=()=>{
+  const changeToggle=(num)=>{
+    setEvent(num)
     setToggle(!toggle)
   }
   return (
     <div>
-        {toggle?<PopUpCalender/>:""}
+        {toggle?<PopUpCalender num={event}/>:""}
       <div className="container-cal">
         <div className="calendar">
           <div className="front">
@@ -51,7 +54,7 @@ const MyCalendar = () => {
                 <div className="second">
                   <span>04</span>
                   <span>05</span>
-                  <span className="event" onClick={changeToggle}>
+                  <span className="event" onClick={()=>changeToggle(0)}>
                     
                     06
                   </span>
@@ -75,7 +78,7 @@ const MyCalendar = () => {
                   <span>18</span>
                   <span>19</span>
                   <span>20</span>
-                  <span className="event" onClick={changeToggle}>21</span>
+                  <span className="event" onClick={()=>changeToggle(1)}>21</span>
                   <span>22</span>
                   <span>23</span>
                   <span>24</span>
@@ -86,7 +89,7 @@ const MyCalendar = () => {
                   <span>26</span>
                   <span>27</span>
                   <span>28</span>
-                  <span className="event" onClick={changeToggle}>29</span>
+                  <span className="event" onClick={()=>changeToggle(2)}>29</span>
                   <span>30</span>
                   <span>31</span>
                 </div>
