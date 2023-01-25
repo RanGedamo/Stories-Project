@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-const basicAPI = "http://localhost:6060/groups";
+const basicAPI = "http://storyserver-env.eba-znagmmma.us-east-1.elasticbeanstalk.com/groups";
 const getAllGroups =  createAsyncThunk( "groups/getAll",(arg,{rejectWithValue}) => {
   return fetch(`${basicAPI}`)
     .then((res) => res.json())

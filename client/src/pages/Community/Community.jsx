@@ -9,7 +9,7 @@ export default function Community() {
   const id=useParams().id
   useEffect(()=>{
     try{
-    fetch(`http://localhost:6060/groups/byId/${id}`)
+    fetch(`http://storyserver-env.eba-znagmmma.us-east-1.elasticbeanstalk.com/groups/byId/${id}`)
     .then((res) => res.json())
     .then((res)=>setGroup(res.group)) }
     catch(error){console.log(error)}
