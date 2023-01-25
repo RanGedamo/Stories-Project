@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import StoriesCarousel from "../../components/Carousel/StoriesCarousel";
 // import Sidebar from "../../components/sidebar/Sidebar";
 // import StoriesData from "../../components/story/StoriesData";
@@ -17,12 +17,15 @@ import StoriesData from "../../components/story/StoriesData";
 
 // import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
 
-function Home() {
-  const [groupName, setGroupName] = useState(false);
-  const [story, setStory] = useState(false);
+const renderGroup = (item) => {
+  return <ProfileStatistics key={item} item={item} />;
+}
 
-  const API = "http://localhost:6060/groups";
-  const STORY = "http://localhost:6060/stories";
+function Home() {
+  const [groupName, setGroupName] = useState([]);
+  const [story, setStory] = useState([]);
+  const [isGroupsLoading, setGroupsLoading] = useState(true);
+  const [isStoriesLoading, setStoriesLoading] = useState(true);
 
   const pictures = [
     "https://images.pexels.com/photos/163064/play-stone-network-networked-interactive-163064.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -31,21 +34,47 @@ function Home() {
     "https://images.pexels.com/photos/8258043/pexels-photo-8258043.jpeg?auto=compress&cs=tinysrgb&w=600",
   ];
 
-  useEffect(() => {
+
+  const getStories = async () => {
     try {
-      return fetch(API)
+      return await fetch("http://localhost:6060/stories")
         .then((response) => response.json())
-        .then((data) => setGroupName(data.groups));
-    } catch (error) {}
-  }, []);
+        .then(({ stories }) => setStory(stories));
+    } catch (error) {
+      console.log({ error });
+    } finally {
+      setStoriesLoading(false)
+    }
+  }
+
+  const getGroups = async () => {
+    try {
+      return await fetch("http://localhost:6060/groups")
+        .then((response) => response.json())
+        .then(({groups}) => setGroupName(groups));
+    } catch (error) {
+      console.log({ error });
+    }
+    finally {
+      setGroupsLoading(false)
+    }
+  }
 
   useEffect(() => {
-    try {
-      return fetch(STORY)
-        .then((response) => response.json())
-        .then((data) => setGroupName(data.story));
-    } catch (error) {}
+    getStories()
+    getGroups()
   }, []);
+
+  const renderStories = useCallback((key, index) => {
+    if (story >= 5) {
+      return (
+        <MDBCol size={2} className=" ms-5 p-0">
+          <StoriesData />
+        </MDBCol>
+      );
+    }
+  },[story])
+
 
   return (
     <MDBContainer className="fluid">
@@ -56,32 +85,22 @@ function Home() {
         </MDBCol>
       </MDBRow>
       <MDBRow>
-        <StoriesData />
+        {/* <StoriesData /> */}
       </MDBRow>
 
       <MDBRow className=" row-cols-3 m-4" style={{ minHeight: "75px" }}>
-        {story == false ? (
+        {isStoriesLoading? (
           <div>Loading...</div>
         ) : (
-          story?.map((key, index) => {
-            if (story >= 5) {
-              return (
-                <MDBCol size={2} className=" ms-5 p-0">
-                  <StoriesData />
-                </MDBCol>
-              );
-            }
-          })
+          story?.map(renderStories)
         )}
       </MDBRow>
 
       <MDBRow className=" row-cols-3 m-4" style={{ minHeight: "75px" }}>
-        {groupName == false ? (
+        {isGroupsLoading? (
           <div>Loading...</div>
         ) : (
-          groupName?.map((key, index) => {
-            return <ProfileStatistics key={key} item={key} />;
-          })
+          groupName.map(renderGroup)
         )}
       </MDBRow>
       <MDBRow className="mb-5 mt-6 mb-8">
@@ -98,7 +117,7 @@ function Home() {
           <Challenges item={pictures[3]} />
         </MDBCol>
       </MDBRow>
-      <StoriesData />
+      {/* <StoriesData /> */}
       <MDBCol className="d-flex justify-content-center">
         <CreateCommunity />
       </MDBCol>

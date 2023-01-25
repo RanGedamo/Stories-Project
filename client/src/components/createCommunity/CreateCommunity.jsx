@@ -25,7 +25,7 @@ function CreateCommunity({color, text}) {
         <MDBCol md="8">
           <MDBCardBody>
             <MDBCardTitle>
-              <h3>Create Your Community</h3>
+              {/* <h3>Create Your Community</h3> */}
             </MDBCardTitle>
             <br />
             <MDBCardText>

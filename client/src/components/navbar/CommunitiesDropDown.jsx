@@ -23,7 +23,7 @@ import { MDBDropdown, MDBDropdownMenu, MDBDropdownToggle, MDBDropdownItem } from
 import Cookies from 'js-cookie';
 
 
-export default function App() {
+export default function CommunitiesDropDown() {
     const [groups,setGroups]=useState()
     // const userEmail=Cookies.get('user')
     // useEffect(()=>{
@@ -38,20 +38,20 @@ export default function App() {
         try{
         fetch(`http://localhost:6060/groups`)
         .then((res) => res.json())
-        .then((res)=>setGroups(res.groups)) }
+        .then((res)=>setGroups(res?.groups)) }
         catch(error){console.log(error)}
         },[])
-        // if(groups){
+        if(groups){
   return (
     <>
 <MDBDropdown group className='shadow-0'>
 <MDBDropdownToggle color='light'>communities</MDBDropdownToggle>
 <MDBDropdownMenu>
-  {groups?.map((group)=>{return(<MDBDropdownItem className="stretched-link" onClick={navigate(`/community`,{props:group})} link>{group.groupName}</MDBDropdownItem>)})}
+  {groups?.map((group)=>{return(<MDBDropdownItem className="stretched-link" link>{group?.groupName}</MDBDropdownItem>)})}
 </MDBDropdownMenu>
 </MDBDropdown>
 </>
 );
-// }
-// else{return}
+}
+else{return}
 }
