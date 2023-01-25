@@ -18,12 +18,12 @@
 // }
 
 import React from 'react';
-import {useEffect,useState, navigate} from 'react';
+import {useEffect,useState, Link} from 'react';
 import { MDBDropdown, MDBDropdownMenu, MDBDropdownToggle, MDBDropdownItem } from 'mdb-react-ui-kit';
 import Cookies from 'js-cookie';
 
 
-export default function App() {
+export default function CommunitiesDropDown() {
     const [groups,setGroups]=useState()
     // const userEmail=Cookies.get('user')
     // useEffect(()=>{
@@ -47,7 +47,7 @@ export default function App() {
 <MDBDropdown group className='shadow-0'>
 <MDBDropdownToggle color='light'>communities</MDBDropdownToggle>
 <MDBDropdownMenu>
-  {groups?.map((group)=>{return(<MDBDropdownItem className="stretched-link" onClick={navigate(`/community`,{props:group})} link>{group.groupName}</MDBDropdownItem>)})}
+  {groups?.map((group)=>{return(<MDBDropdownItem className=""  ><a href={`/community/${group._id}`} >{group.groupName}</a></MDBDropdownItem>)})}
 </MDBDropdownMenu>
 </MDBDropdown>
 </>

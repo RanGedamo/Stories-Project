@@ -15,8 +15,8 @@ const getAll = async (req, res) => {
 
 const getById = async (req, res) => {
     await storiesModel.findById(req.params.id)
-        .then((storie) => {
-            if (!storie) {
+        .then((story) => {
+            if (!story) {
                 return res.json({ success: false, massage: "story not found" });
             }
             return res.status(200).json({ success: true, story });
